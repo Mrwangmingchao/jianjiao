@@ -1,6 +1,5 @@
 <template>
   <div>
-    shouye
     <tabbar></tabbar>
     <router-view></router-view>
   </div>
