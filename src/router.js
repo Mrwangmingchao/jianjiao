@@ -1,25 +1,89 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Recommend from '@/views/index/Recommend'
+import Furniture from '@/views/index/Furniture'
+import Jiaju from '@/views/index/Jiaju'
+import Active from '@/views/index/Active'
+import Index from '@/views/Index'
+import Sort from '@/views/Sort'
+import Cart from '@/views/Cart'
+import Mine from '@/views/Mine'
+import Message from '@/views/Message'
+import Pages from '@/views/Pages'
+import Topic from '@/views/Topic'
+import SearchView from '@/views/SearchView'
+import SearchResult from '@/views/SearchResult'
+import Item from '@/views/Item'
 
 Vue.use(Router)
 
-export default new Router({
-  mode: 'history',
+const router = new Router({
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/index',
+      component: Index,
+      children: [
+        {
+          path: 'recommend',
+          component: Recommend
+        },
+        {
+          path: 'furniture',
+          component: Furniture
+        },
+        {
+          path: 'jiaju',
+          component: Jiaju
+        },
+        {
+          path: 'active',
+          component: Active
+        }
+      ]
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/message',
+      component: Message
+    },
+    {
+      path: '/cart',
+      component: Cart
+    },
+    {
+      path: '/mine',
+      component: Mine
+    },
+    {
+      path: '/sort',
+      component: Sort
+    },
+    {
+      path: '/pages/:pageid',
+      component: Pages
+    },
+    {
+      path: '/topic/:pageid',
+      component: Topic
+    },
+    {
+      path: '/searchview',
+      component: SearchView
+    },
+    {
+      path: '/searchresult',
+      component: SearchResult
+    },
+    {
+      path: '/item:itemid',
+      component: Item
+    },
+    {
+      path: '*',
+      redirect: '/index'
     }
   ]
 })
+
+export default router
