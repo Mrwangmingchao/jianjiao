@@ -11,10 +11,16 @@
 <style lang="scss" scoped>
 ul{
 display: flex;
+justify-content: space-around;
+width: 100%;
 li{
-    flex: 1;
     text-align: center;
-    font-size: 0.28rem
+    font-size: 0.28rem;
+    margin: 10px .2rem;
+    padding: .2rem .2rem;
+}
+.myactive{
+    border-bottom: 3px solid #000;
 }
 }
 </style>
