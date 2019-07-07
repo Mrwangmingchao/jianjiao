@@ -9,6 +9,9 @@
     </div>
 </template>
 <style lang="scss" scoped>
+div{
+    background: #fff;
+}
 ul{
 display: flex;
 justify-content: space-around;

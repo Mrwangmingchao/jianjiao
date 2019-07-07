@@ -29,6 +29,7 @@ export default {
 .search{
   height: .5rem;
   padding: 5px 10px;
+  background: #fff;
 }
 p{
   float: left;
