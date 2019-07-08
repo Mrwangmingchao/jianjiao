@@ -1,6 +1,5 @@
 <template>
   <div>
-    shouye
     <tabbar></tabbar>
     <router-view></router-view>
   </div>
@@ -23,6 +22,9 @@ export default {
 html{
   height: 100%;
   width: 100%;
+}
+body{
+  background: #f5f5f5;
 }
 li{
   list-style: none;

@@ -20,69 +20,71 @@ Vue.use(Router)
 const router = new Router({
   // mode: 'history',
   base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/index',
-      component: Index,
-      children: [
-        {
-          path: 'recommend',
-          component: Recommend
-        },
-        {
-          path: 'furniture',
-          component: Furniture
-        },
-        {
-          path: 'jiaju',
-          component: Jiaju
-        },
-        {
-          path: 'active',
-          component: Active
-        }
-      ]
+  routes: [{
+    path: '/index',
+    component: Index,
+    children: [{
+      path: 'recommend',
+      component: Recommend
     },
     {
-      path: '/message',
-      component: Message
+      path: 'furniture',
+      component: Furniture
     },
     {
-      path: '/cart',
-      component: Cart
+      path: 'jiaju',
+      component: Jiaju
     },
     {
-      path: '/mine',
-      component: Mine
+      path: 'active',
+      component: Active
     },
     {
-      path: '/sort',
-      component: Sort
-    },
-    {
-      path: '/pages/:pageid',
-      component: Pages
-    },
-    {
-      path: '/topic/:pageid',
-      component: Topic
-    },
-    {
-      path: '/searchview',
-      component: SearchView
-    },
-    {
-      path: '/searchresult',
-      component: SearchResult
-    },
-    {
-      path: '/item:itemid',
-      component: Item
-    },
-    {
-      path: '*',
-      redirect: '/index'
+      path: '',
+      redirect: 'recommend'
     }
+    ]
+  },
+  {
+    path: '/message',
+    component: Message
+  },
+  {
+    path: '/cart',
+    component: Cart
+  },
+  {
+    path: '/mine',
+    component: Mine
+  },
+  {
+    path: '/sort',
+    component: Sort
+  },
+  {
+    path: '/pages/:pageid',
+    component: Pages
+  },
+  {
+    path: '/topic/:pageid',
+    component: Topic
+  },
+  {
+    path: '/searchview',
+    component: SearchView
+  },
+  {
+    path: '/searchresult',
+    component: SearchResult
+  },
+  {
+    path: '/item/:itemid',
+    component: Item
+  },
+  {
+    path: '*',
+    redirect: '/index'
+  }
   ]
 })
 
