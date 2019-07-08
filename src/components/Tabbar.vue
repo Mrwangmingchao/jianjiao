@@ -30,6 +30,7 @@ ul {
   border-top: 1px solid #eee;
   padding: 5px 0;
   background: #fff;
+  z-index: 1000;
   li {
     flex: 1;
     text-align: center;
