@@ -19,6 +19,7 @@
 <script>
 import axios from 'axios'
 import swipe from '@/components/Swipe'
+import 'swiper/dist/css/swiper.css'
 export default {
   components: {
     swipe
