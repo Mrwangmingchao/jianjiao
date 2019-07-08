@@ -9,12 +9,21 @@
   </div>
 </template>
 <style lang="scss" scoped>
+div {
+  background: #fff;
+}
 ul {
   display: flex;
+  justify-content: space-around;
+  width: 100%;
   li {
-    flex: 1;
     text-align: center;
     font-size: 0.28rem;
+    margin: 10px 0.2rem;
+    padding: 0.2rem 0.2rem;
+  }
+  .myactive {
+    border-bottom: 3px solid #000;
   }
 }
 </style>

@@ -40,6 +40,10 @@ const router = new Router({
         {
           path: 'active',
           component: Active
+        },
+        {
+          path: '',
+          redirect: 'recommend'
         }
       ]
     },
