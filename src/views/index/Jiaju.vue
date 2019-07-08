@@ -2,7 +2,7 @@
   <div id="box">
     <swipe v-if="itemlist.moduleContent">
       <mt-swipe-item v-for="data in itemlist.moduleContent.banners" :key="data.id">
-        <img :src="data.bannerImgSrc" />
+        <img :src="data.bannerImgSrc" @click="handlyChangePage(data.id)" />
       </mt-swipe-item>
     </swipe>
     <div class="banner">
@@ -15,7 +15,7 @@
           <div
             class="swiper-slide"
             v-for="data in datalist.moduleContent.products"
-            :key="data.productId"
+            :key="data.productId" @click="handlyChangePage(data.productId)"
           >
             <img :src="data.productImg" class="photos" />
             <p>{{data.productTitle}}</p>
@@ -34,14 +34,15 @@
         v-for="item in  data.moduleContent.products.slice(0,6)"
         :key="item.productId"
         class="product"
+        @click="handlyChangePage(item.productId)"
       >
         <img :src="item.productImg" alt />
-        <div class="message">
+        <div class="message" >
           <p>{{item.productTitle}}</p>
           <p>￥{{item.originalPrice}}</p>
         </div>
       </div>
-      <p class="last"> 查看全部 ▶</p>
+      <p class="last">查看全部 ▶</p>
     </div>
   </div>
 </template>
@@ -82,7 +83,11 @@ export default {
         // console.log(this.datalist);
       })
   },
-  methods: {},
+  methods: {
+    handlyChangePage (Id) {
+      this.$router.push(`/item/${Id}`)
+    }
+  },
   components: {
     swipe
   }
@@ -144,11 +149,11 @@ export default {
 .producttype {
   width: 100%;
   background: white;
-  margin-top:.4rem;
+  margin-top: 0.4rem;
   > h3 {
     text-align: center;
-    padding: .3rem 0;
-    font-size:  0.36rem
+    padding: 0.3rem 0;
+    font-size: 0.36rem;
   }
   > p {
     text-align: center;
@@ -158,7 +163,6 @@ export default {
     display: inline-block;
     background: white;
     .message {
-
       p {
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -166,9 +170,9 @@ export default {
       }
     }
   }
-  .last{
-      height: 1rem;
-      line-height: 1rem;
+  .last {
+    height: 1rem;
+    line-height: 1rem;
   }
 }
 </style>

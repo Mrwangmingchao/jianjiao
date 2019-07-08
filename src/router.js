@@ -80,7 +80,7 @@ const router = new Router({
       component: SearchResult
     },
     {
-      path: '/item:itemid',
+      path: '/item/:itemid',
       component: Item
     },
     {
