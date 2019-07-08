@@ -1,10 +1,10 @@
 <template>
   <div>
-    <mt-swipe :auto="4000" style="height:4.8rem">
-      <mt-swipe-item v-for="data in datalist" :key="data.id">
+    <swipe>
+       <mt-swipe-item v-for="data in datalist" :key="data.id">
         <img :src="data.bannerImgSrc" />
       </mt-swipe-item>
-    </mt-swipe>
+    </swipe>
     <div class="module-all">
       <div class="module-2" v-for="(item) in itemlist" :key="item.moduleId">
         <h3>{{item.moduleName}}</h3>
@@ -18,7 +18,12 @@
 
 <script>
 import axios from 'axios'
+import swipe from '@/components/Swipe'
+import 'swiper/dist/css/swiper.css'
 export default {
+  components: {
+    swipe
+  },
   data () {
     return {
       datalist: [],
