@@ -21,7 +21,7 @@ export default {
     })
   },
   beforeDestroy () {
-    this.$store.commit('ShowMaizuoTabbar', true)
+    this.$store.commit('ShowTabbar', true)
   }
 }
 </script>
