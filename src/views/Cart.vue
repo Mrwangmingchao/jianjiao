@@ -48,11 +48,13 @@ export default {
   },
   methods: {
     loadMore () {
+      this.loading = true
       this.index++
       axios({
         url: `/recommend/cart?currentPage=${this.index}&_=1562659386221`
       }).then(res => {
         this.datalist = [...this.datalist, ...res.data.data]
+        this.loading = false
         //   console.log(res)
       })
     }
