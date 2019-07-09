@@ -14,6 +14,9 @@ import Topic from '@/views/Topic'
 import SearchView from '@/views/SearchView'
 import SearchResult from '@/views/SearchResult'
 import Item from '@/views/Item'
+import New from '@/views/SearchResult/New'
+import Price from '@/views/SearchResult/Price'
+import Num from '@/views/SearchResult/Num'
 
 Vue.use(Router)
 
@@ -77,7 +80,23 @@ const router = new Router({
     },
     {
       path: '/searchresult',
-      component: SearchResult
+      component: SearchResult,
+      redirect: '/searchresult/new',
+      children: [
+        {
+          path: 'price',
+          component: Price
+        },
+        {
+          path: 'num',
+          component: Num
+        },
+        {
+          path: 'new',
+          component: New
+        }
+      ]
+
     },
     {
       path: '/item:itemid',
