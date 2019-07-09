@@ -15,14 +15,15 @@
           <div
             class="swiper-slide"
             v-for="data in datalist.moduleContent.products"
-            :key="data.productId" @click="handlyChangePage(data.productId)"
+            :key="data.productId"
+            @click="handlyChangePage(data.productId)"
           >
             <img :src="data.productImg" class="photos" />
             <p>{{data.productTitle}}</p>
             <p>￥{{data.originalPrice}}</p>
           </div>
         </div>
-        <p>查看全部 ▶</p>
+        <p> <a  @click='handlyChangeGroup(datalist.moduleContent.id)'>查看全部 ▶</a> </p>
         <div class="swiper-pagination film-swiper-pagination"></div>
       </div>
     </div>
@@ -30,19 +31,21 @@
     <div v-for="data in anotherlist" :key="data.moduleId" class="producttype">
       <h3>{{data.moduleName}}</h3>
       <p>{{ data.moduleDescription}}</p>
-      <div
-        v-for="item in  data.moduleContent.products.slice(0,6)"
-        :key="item.productId"
-        class="product"
-        @click="handlyChangePage(item.productId)"
-      >
-        <img :src="item.productImg" alt />
-        <div class="message" >
-          <p>{{item.productTitle}}</p>
-          <p>￥{{item.originalPrice}}</p>
+      <div>
+        <div
+          v-for="item in  data.moduleContent.products.slice(0,6)"
+          :key="item.productId"
+          class="product"
+          @click="handlyChangePage(item.productId)"
+        >
+          <img :src="item.productImg" alt />
+          <div class="message">
+            <p>{{item.productTitle}}</p>
+            <p>￥{{item.originalPrice}}</p>
+          </div>
         </div>
       </div>
-      <p class="last">查看全部 ▶</p>
+      <p class="last"><a  @click='handlyChangeGroup(data.moduleContent.id)'>查看全部 ▶</a></p>
     </div>
   </div>
 </template>
@@ -86,6 +89,9 @@ export default {
   methods: {
     handlyChangePage (Id) {
       this.$router.push(`/item/${Id}`)
+    },
+    handlyChangeGroup (Id) {
+      this.$router.push(`/productGroup/${Id}`)
     }
   },
   components: {
@@ -97,6 +103,7 @@ export default {
 <style lang="scss" scoped>
 #box {
   font-size: 0.28rem;
+  margin-bottom: 1rem;
   img {
     width: 100%;
   }
@@ -157,16 +164,37 @@ export default {
   }
   > p {
     text-align: center;
+    margin-bottom: 0.1rem;
+    color: #333;
   }
+  // > div:nth-of-type(2n) {
+  //   border-left: 1px solid #ccc;
+  // }
+  // > div:nth-of-type(2n-1) {
+  //   border-right: 1px solid #ccc;
+  // }
   > div {
-    width: 50%;
-    display: inline-block;
-    background: white;
-    .message {
-      p {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    > div {
+      width: 50%;
+      background: white;
+      box-sizing: border-box;
+      border: 1px solid rgb(245, 245, 245);
+
+      > img {
+        display: block;
+      }
+      .message {
+        box-sizing: border-box;
+        p {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          margin: 0 0.25rem;
+        }
       }
     }
   }

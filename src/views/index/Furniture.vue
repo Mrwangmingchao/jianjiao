@@ -2,7 +2,7 @@
   <div id="box">
     <swipe v-if="itemlist.moduleContent">
       <mt-swipe-item v-for="data in itemlist.moduleContent.banners" :key="data.id">
-        <img :src="data.bannerImgSrc" @click='handlyChangePage(data.id)'/>
+        <img :src="data.bannerImgSrc" @click="handlyChangePage(data.id)" />
       </mt-swipe-item>
     </swipe>
     <div class="banner">
@@ -16,14 +16,14 @@
             class="swiper-slide"
             v-for="data in datalist.moduleContent.products"
             :key="data.productId"
-             @click="handlyChangePage(data.productId)"
+            @click="handlyChangePage(data.productId)"
           >
             <img :src="data.productImg" class="photos" />
             <p>{{data.productTitle}}</p>
             <p>￥{{data.originalPrice}}</p>
           </div>
         </div>
-        <p>查看全部 ▶</p>
+        <p> <a @click='handlyChangeGroup(datalist.moduleContent.id)'>查看全部 ▶</a> </p>
         <div class="swiper-pagination film-swiper-pagination"></div>
       </div>
     </div>
@@ -31,19 +31,21 @@
     <div v-for="data in anotherlist" :key="data.moduleId" class="producttype">
       <h3>{{data.moduleName}}</h3>
       <p>{{ data.moduleDescription}}</p>
-      <div
-        v-for="item in  data.moduleContent.products.slice(0,6)"
-        :key="item.productId"
-        class="product"
-        @click="handlyChangePage(item.productId)"
-      >
-        <img :src="item.productImg" alt />
-        <div class="message">
-          <p>{{item.productTitle}}</p>
-          <p>￥{{item.originalPrice}}</p>
+      <div>
+        <div
+          v-for="item in  data.moduleContent.products.slice(0,6)"
+          :key="item.productId"
+          class="product"
+          @click="handlyChangePage(item.productId)"
+        >
+          <img :src="item.productImg" alt />
+          <div class="message">
+            <p>{{item.productTitle}}</p>
+            <p>￥{{item.originalPrice}}</p>
+          </div>
         </div>
       </div>
-      <p class="last"> 查看全部 ▶</p>
+      <p class="last"><a  @click='handlyChangeGroup(data.moduleContent.id)'>查看全部 ▶</a></p>
     </div>
   </div>
 </template>
@@ -65,7 +67,7 @@ export default {
   mounted () {
     axios
       .get(
-        'v2/page?pageId=1&tabId=10005&currentPage=1&pageSize=8&_=1562584784400'
+        'v2/page?pageId=1&tabId=10006&currentPage=1&pageSize=8&_=1562549946530'
       )
       .then(res => {
         this.datalist = res.data.data.modules[1]
@@ -74,7 +76,7 @@ export default {
         console.log(this.anotherlist)
 
         this.$nextTick(() => {
-          var k = new Swiper('.filmswiper', {
+          const k = new Swiper('.filmswiper', {
             slidesPerView: 3.5,
             spaceBetween: 10,
             freeMode: true
@@ -87,6 +89,9 @@ export default {
   methods: {
     handlyChangePage (Id) {
       this.$router.push(`/item/${Id}`)
+    },
+    handlyChangeGroup (Id) {
+      this.$router.push(`/productGroup/${Id}`)
     }
   },
   components: {
@@ -98,6 +103,7 @@ export default {
 <style lang="scss" scoped>
 #box {
   font-size: 0.28rem;
+  margin-bottom: 1rem;
   img {
     width: 100%;
   }
@@ -150,34 +156,51 @@ export default {
 .producttype {
   width: 100%;
   background: white;
-  margin-top:.4rem;
+  margin-top: 0.4rem;
   > h3 {
     text-align: center;
-    padding: .3rem 0;
-    font-size:  0.36rem
+    padding: 0.3rem 0;
+    font-size: 0.36rem;
   }
   > p {
     text-align: center;
+    margin-bottom: 0.1rem;
+    color: #333;
   }
+  // > div:nth-of-type(2n) {
+  //   border-left: 1px solid #ccc;
+  // }
+  // > div:nth-of-type(2n-1) {
+  //   border-right: 1px solid #ccc;
+  // }
   > div {
-    width: 50%;
-    display: inline-block;
-    background: white;
-    .message {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    > div {
+      width: 50%;
+      background: white;
+      box-sizing: border-box;
+      border: 1px solid rgb(245, 245, 245);
 
-      p {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+      > img {
+        display: block;
+      }
+      .message {
+        box-sizing: border-box;
+        p {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          margin: 0 0.25rem;
+        }
       }
     }
   }
-  .last{
-      height: 1rem;
-      line-height: 1rem;
+  .last {
+    height: 1rem;
+    line-height: 1rem;
   }
 }
-</style>
-
-<style lang="scss" scoped>
 </style>

@@ -14,6 +14,7 @@ import Topic from '@/views/Topic'
 import SearchView from '@/views/SearchView'
 import SearchResult from '@/views/SearchResult'
 import Item from '@/views/Item'
+import productGroup from '@/views/productGroup'
 
 Vue.use(Router)
 
@@ -65,6 +66,10 @@ const router = new Router({
   {
     path: '/pages/:pageid',
     component: Pages
+  },
+  {
+    path: '/productGroup/:Groupid',
+    component: productGroup
   },
   {
     path: '/topic/:pageid',

@@ -9,6 +9,10 @@ module.exports = {
       '/itemdetail': {
         target: 'https://m.wowdsgn.com',
         changeOrigin: true
+      },
+      '/pages': {
+        target: 'https://m.wowdsgn.com',
+        changeOrigin: true
       }
     }
   }
