@@ -13,6 +13,10 @@ module.exports = {
       '/pages': {
         target: 'https://m.wowdsgn.com',
         changeOrigin: true
+      },
+      '/recommend': {
+        target: 'https://m.wowdsgn.com',
+        changeOrigin: true
       }
     }
   }
