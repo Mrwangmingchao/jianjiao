@@ -28,6 +28,12 @@ export default {
       num: 1
     }
   },
+  beforeCreate () {
+    this.$store.commit('HideTabbar', false)
+  },
+  beforeDestroy () {
+    this.$store.commit('ShowTabbar', true)
+  },
   mounted () {
     //   console.log(this.$route.params.Groupid)
     // axios

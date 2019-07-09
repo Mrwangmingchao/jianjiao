@@ -67,7 +67,7 @@ export default {
   mounted () {
     axios
       .get(
-        'v2/page?pageId=1&tabId=10006&currentPage=1&pageSize=8&_=1562549946530'
+        'v2/page?pageId=1&tabId=10006&currentPage=1&pageSize=8&_=1562664236377'
       )
       .then(res => {
         this.datalist = res.data.data.modules[1]
