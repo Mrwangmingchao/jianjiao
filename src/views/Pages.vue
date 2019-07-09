@@ -12,10 +12,16 @@ export default {
       datalist: []
     }
   },
+  beforeMount () {
+    this.$store.commit('HideTabbar', false)
+  },
   mounted () {
     axios.get('http://localhost:3000/profile').then(res => {
       this.datalist = res.data
     })
+  },
+  beforeDestroy () {
+    this.$store.commit('ShowMaizuoTabbar', true)
   }
 }
 </script>
