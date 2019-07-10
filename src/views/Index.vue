@@ -4,7 +4,9 @@
         <p>尖叫设计</p>
         <search v-model="value"></search>
       </div>
-        <indextabbar></indextabbar>
+        <indextabbar>
+
+        </indextabbar>
         <router-view></router-view>
     </div>
 </template>
