@@ -2,7 +2,7 @@
   <div id="box">
     <header>我</header>
 
-    <div class="userinfo">
+    <div class="userinfo" @click='handlychange'>
       <img
         src="https://img.wowdsgn.com/product/images/38ac71d9-0886-427d-82d8-65e6b15c61f2_2dimension_800x800.jpg?imageslim"
       />
@@ -79,7 +79,18 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+
+    }
+  },
+  methods: {
+    handlychange () {
+      this.$router.push('/userCenterPage')
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
