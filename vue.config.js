@@ -21,6 +21,10 @@ module.exports = {
       '/message': {
         target: 'https://m.wowdsgn.com',
         changeOrigin: true
+      },
+      '/topic': {
+        target: 'https://m.wowdsgn.com',
+        changeOrigin: true
       }
     }
   }
