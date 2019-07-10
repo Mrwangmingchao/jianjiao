@@ -34,25 +34,7 @@ const router = new Router({
       path: 'furniture',
       component: Furniture
     },
-    {
-      path: '/searchresult',
-      component: SearchResult,
-      redirect: '/searchresult/new',
-      children: [
-        {
-          path: 'price',
-          component: Price
-        },
-        {
-          path: 'num',
-          component: Num
-        },
-        {
-          path: 'new',
-          component: New
-        }
-      ]
-    },
+
     {
 
       path: 'jiaju',
@@ -98,8 +80,26 @@ const router = new Router({
     component: SearchView
   },
   {
-    path: '/searchresult',
-    component: SearchResult
+    path: '/Searchresult',
+    component: SearchResult,
+    children: [
+      {
+        path: 'price',
+        component: Price
+      },
+      {
+        path: 'num',
+        component: Num
+      },
+      {
+        path: 'new',
+        component: New
+      },
+      {
+        path: '',
+        redirect: '/Searchresult/new'
+      }
+    ]
   },
   {
     path: '/item/:itemid',

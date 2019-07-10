@@ -5,10 +5,15 @@ module.exports = {
         target: 'https://m.wowdsgn.com',
         // ws: true,
         changeOrigin: true
+      },
+      '/product': {
+        target: 'https://m.wowdsgn.com',
+        // ws: true,
+        changeOrigin: true
+        //   target: '<other_url>'
+      // }
       }
       // '/foo': {
-      //   target: '<other_url>'
-      // }
     }
   }
 }
