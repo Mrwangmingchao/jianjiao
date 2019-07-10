@@ -17,6 +17,10 @@ module.exports = {
       '/recommend': {
         target: 'https://m.wowdsgn.com',
         changeOrigin: true
+      },
+      '/message': {
+        target: 'https://m.wowdsgn.com',
+        changeOrigin: true
       }
     }
   }

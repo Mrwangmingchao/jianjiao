@@ -23,7 +23,9 @@
             <p>￥{{data.originalPrice}}</p>
           </div>
         </div>
-        <p> <a @click='handlyChangeGroup(datalist.moduleContent.id)'>查看全部 ▶</a> </p>
+        <p>
+          <a @click="handlyChangeGroup(datalist.moduleContent.id)">查看全部 ▶</a>
+        </p>
         <div class="swiper-pagination film-swiper-pagination"></div>
       </div>
     </div>
@@ -45,8 +47,12 @@
           </div>
         </div>
       </div>
-      <p class="last"><a  @click='handlyChangeGroup(data.moduleContent.id)'>查看全部 ▶</a></p>
+      <p class="last">
+        <a @click="handlyChangeGroup(data.moduleContent.id)">查看全部 ▶</a>
+      </p>
     </div>
+
+    <div class="buttom" v-show="isShow" >已经加载到底了</div>
   </div>
 </template>
 
@@ -61,13 +67,14 @@ export default {
     return {
       datalist: [],
       itemlist: [],
-      anotherlist: []
+      anotherlist: [],
+      isShow: false
     }
   },
   mounted () {
     axios
       .get(
-        'v2/page?pageId=1&tabId=10006&currentPage=1&pageSize=8&_=1562549946530'
+        'v2/page?pageId=1&tabId=10005&currentPage=1&pageSize=8&_=1562664139024'
       )
       .then(res => {
         this.datalist = res.data.data.modules[1]
@@ -81,6 +88,7 @@ export default {
             spaceBetween: 10,
             freeMode: true
           })
+          this.isShow = true
           return k
         })
         // console.log(this.datalist);
@@ -202,5 +210,13 @@ export default {
     height: 1rem;
     line-height: 1rem;
   }
+}
+
+.buttom {
+  height: 1rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  line-height: 1rem;
+  background: white;
 }
 </style>
