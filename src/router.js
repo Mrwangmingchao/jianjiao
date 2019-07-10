@@ -16,6 +16,7 @@ import SearchResult from '@/views/SearchResult'
 import Item from '@/views/Item'
 import productGroup from '@/views/productGroup'
 import List from '@/views/message/List'
+import userCenterPage from '@/views/userCenterPage'
 
 Vue.use(Router)
 
@@ -95,6 +96,10 @@ const router = new Router({
   {
     path: '/list',
     component: List
+  },
+  {
+    path: '/userCenterPage',
+    component: userCenterPage
   }
   ]
 })
