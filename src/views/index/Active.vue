@@ -5,7 +5,9 @@
             <h2>{{data.moduleName}}</h2>
             <h3>{{data.moduleDescription}}</h3>
             <div class="item-all">
-                <div v-for="item in data.moduleContent.products" :key="item.productId" class="activeitem" @click="handleItem(item.productId)">
+                <div v-for="item in data.moduleContent.products" :key="item.productId" class="activeitem"
+                 @click="handleItem(item.productId,item.parentProductId,
+                 item.productImg,item.productTitle,item.sellPrice,item.originalPrice)">
                     <img :src="item.productImg" class="itemimg"/>
                     <div class="sale-price">
                         <p>{{item.productName}}</p>
@@ -21,6 +23,8 @@
 </template>
 <script>
 import axios from 'axios'
+import Vue from 'vue'
+Vue.prototype.$ajax = axios
 export default {
   data () {
     return {
@@ -46,8 +50,12 @@ export default {
     handlePage (id) {
       this.$router.push(`/Pages/${id}`)
     },
-    handleItem (id) {
-      this.$router.push(`/Item/${id}`)
+    handleItem (itemid, proid, proimg, protit, sellp, oripri) {
+      document.documentElement.scrollTop = 0
+      this.$router.push({
+        name: 'jianjiaoitem',
+        params: { itemid: itemid, proid: proid, proimg: proimg, protit: protit, sellp: sellp, oripri: oripri }
+      })
     }
   }
 }

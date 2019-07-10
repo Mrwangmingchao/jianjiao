@@ -78,8 +78,10 @@ const router = new Router({
     component: SearchResult
   },
   {
-    path: '/item/:itemid',
-    component: Item
+    path: '/item/:itemid?/:proid/:proimg/:protit/:sellp/:oripri',
+    component: Item,
+    name: 'jianjiaoitem'
+    // props: true
   },
   {
     path: '*',
