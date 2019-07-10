@@ -15,6 +15,7 @@ import SearchView from '@/views/SearchView'
 import SearchResult from '@/views/SearchResult'
 import Item from '@/views/Item'
 import productGroup from '@/views/productGroup'
+import List from '@/views/message/List'
 
 Vue.use(Router)
 
@@ -90,6 +91,10 @@ const router = new Router({
   {
     path: '*',
     redirect: '/index'
+  },
+  {
+    path: '/list',
+    component: List
   }
   ]
 })
