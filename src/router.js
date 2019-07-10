@@ -14,7 +14,6 @@ import Topic from '@/views/Topic'
 import SearchView from '@/views/SearchView'
 import SearchResult from '@/views/SearchResult'
 import Item from '@/views/Item'
-import productGroup from '@/views/productGroup'
 import New from '@/views/SearchResult/New'
 import Price from '@/views/SearchResult/Price'
 import Num from '@/views/SearchResult/Num'
@@ -42,7 +41,6 @@ const router = new Router({
       component: Jiaju
 
     },
-
     {
       path: 'active',
       component: Active
@@ -74,10 +72,6 @@ const router = new Router({
     component: Pages
   },
   {
-    path: '/productGroup/:Groupid',
-    component: productGroup
-  },
-  {
     path: '/topic/:pageid',
     component: Topic
   },
@@ -103,8 +97,9 @@ const router = new Router({
       },
       {
         path: '',
-        redirect: '/Searchresult/new'
+        redirect: 'new'
       }
+
     ]
   },
   {

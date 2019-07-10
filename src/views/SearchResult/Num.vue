@@ -3,13 +3,11 @@
         <ul v-infinite-scroll="loadMore"
             infinite-scroll-disabled="loading"
             infinite-scroll-distance="10">
-        <li v-for="data in datalist" :key="data.productId">
-            <a href="">
+        <li v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId)">
             <img :src="data.productImg" alt="">
             <div class="block"></div>
             <p>{{data.productTitle}}</p>
             <span>￥{{data.originalPrice}}</span>
-            </a>
         </li>
         </ul>
             <div v-show="isShow">正在加载中.....</div>
@@ -32,6 +30,11 @@ export default {
     }
   },
   methods: {
+    handleClick (id) {
+      console.log(id)
+      this.$router.push(`/item/${id}`)
+    },
+
     loadMore () {
       this.loading = true
       this.current++
@@ -67,13 +70,6 @@ export default {
             font-size: 0;
             position: relative;
             height: 5.6rem;
-        a{
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            position: relative;
-            font-size: 0;
-            padding-bottom: 0.1rem;
         img{
             height: 3.71rem;
             margin: 0 auto 0;
@@ -110,5 +106,5 @@ export default {
         }
         }
         }
-    }
+
 </style>
