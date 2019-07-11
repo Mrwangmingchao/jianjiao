@@ -31,6 +31,7 @@ export default {
   methods: {
     handleClick (id) {
       console.log(id)
+      console.log(this.value)
       this.$router.push(`/item/${id}`)
     },
     loadMore () {
