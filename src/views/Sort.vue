@@ -6,9 +6,9 @@
         <li>
           <img src="https://m.wowdsgn.com/static/img/furniture.png" alt />
         </li>
-        <li v-for="data in datalist" :key="data.id" class="sort" @click="handleclick(data.id,data.sort)">{{data.sort}}</li>
+        <li v-for="data in datalist" :key="data.id" class="sort" @click="handleclick(data.id,data.sort)">{{data.sort}} <i class="iconfont icon-arrow-right"></i></li>
         <li><img src="https://m.wowdsgn.com/static/img/household.png" alt=""></li>
-        <li v-for="item in itemlist" :key="item.id" class="sort" @click="handleclick(item.id,item.sort)">{{item.sort}}</li>
+        <li v-for="item in itemlist" :key="item.id" class="sort" @click="handleclick(item.id,item.sort)">{{item.sort}}<i class="iconfont icon-arrow-right"></i></li>
       </ul>
     </div>
   </div>
@@ -63,5 +63,12 @@ export default {
       font-weight: bold;
     }
   }
+}
+i{
+  float: right;
+  font-size: 20px;
+  font-weight: 100;
+  color: #999;
+  margin-right: .1rem
 }
 </style>

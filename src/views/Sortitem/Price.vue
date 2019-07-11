@@ -46,7 +46,20 @@ export default {
     })
   },
   methods: {
-
+    handlychange (itemid, proid, proimg, protit, sellp, oripri) {
+      document.documentElement.scrollTop = 0
+      this.$router.push({
+        name: 'jianjiaoitem',
+        params: {
+          itemid: itemid,
+          proid: proid,
+          proimg: proimg,
+          protit: protit,
+          sellp: sellp,
+          oripri: oripri
+        }
+      })
+    },
     loadMore () {
       this.loading = true
       this.index++
@@ -68,7 +81,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
