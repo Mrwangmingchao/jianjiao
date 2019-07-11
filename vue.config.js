@@ -6,15 +6,17 @@ module.exports = {
         // ws: true,
         changeOrigin: true
       },
+      '/recommend': {
+        target: 'https://m.wowdsgn.com',
+        // ws: true,
+        changeOrigin: true
+      },
       '/itemdetail': {
         target: 'https://m.wowdsgn.com',
+        // ws: true,
         changeOrigin: true
       },
       '/pages': {
-        target: 'https://m.wowdsgn.com',
-        changeOrigin: true
-      },
-      '/recommend': {
         target: 'https://m.wowdsgn.com',
         changeOrigin: true
       },
@@ -25,6 +27,12 @@ module.exports = {
       '/topic': {
         target: 'https://m.wowdsgn.com',
         changeOrigin: true
+      },
+      '/product': {
+        target: 'https://m.wowdsgn.com',
+        // ws: true,
+        changeOrigin: true
+        //   target: '<other_url>'
       }
     }
   }

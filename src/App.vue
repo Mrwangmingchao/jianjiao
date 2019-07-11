@@ -7,9 +7,13 @@
 
 <script>
 import tabbar from '@/components/Tabbar'
+import { mapState } from 'vuex'
 export default {
   components: {
     tabbar
+  },
+  computed: {
+    ...mapState(['isTabbarShow'])
   }
 }
 </script>

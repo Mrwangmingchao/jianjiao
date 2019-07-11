@@ -105,7 +105,7 @@ export default {
   .li {
     background: #fff;
     float: left;
-    width: 49.7%;
+    width: 49.5%;
     border-right: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
     font-size: 0;

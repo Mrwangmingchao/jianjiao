@@ -96,7 +96,6 @@
 
 <script>
 import headbar from '@/components/HeadBar'
-import axios from 'axios'
 export default {
   data () {
     return {
@@ -110,9 +109,7 @@ export default {
     this.$store.commit('ShowTabbar', true)
   },
   mounted () {
-    axios.get('/message/messageMain?_=1562669381688').then(res => {
-      console.log(res.data)
-    })
+
   },
   components: {
     headbar

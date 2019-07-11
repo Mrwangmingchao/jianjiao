@@ -37,7 +37,21 @@
          {"id":35, "src":"https://img.wowdsgn.com/page/banners/1714567c-d66c-4aa1-9172-45d62cdda461_2dimension_750x271.jpg"}
      ],
      "search":[
-         {"hortsearch": "尖叫实验室"}
-     ]
+        {"hortsearch": "尖叫实验室"},
+        {"hortsearch": "暖手宝"},
+        {"hortsearch": "沙发"},
+        {"hortsearch": "杯子"},
+        {"hortsearch": "餐具"},
+        {"hortsearch": "茶具"},
+        {"hortsearch": "吊灯"},
+        {"hortsearch": "厨房"},
+        {"hortsearch": "儿童"},
+        {"hortsearch": "HAY"},
+        {"hortsearch": "Arabia"},
+        {"hortsearch": "家饰"},
+        {"hortsearch": "收纳"},
+        {"hortsearch": "床上用品"},
+        {"hortsearch": "旅行"}
+    ]
  }
  

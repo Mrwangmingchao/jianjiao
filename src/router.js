@@ -14,9 +14,12 @@ import Topic from '@/views/Topic'
 import SearchView from '@/views/SearchView'
 import SearchResult from '@/views/SearchResult'
 import Item from '@/views/Item'
-import productGroup from '@/views/productGroup'
+// import productGroup from '@/views/productGroup'
 import List from '@/views/message/List'
 import userCenterPage from '@/views/userCenterPage'
+import New from '@/views/SearchResult/New'
+import Price from '@/views/SearchResult/Price'
+import Num from '@/views/SearchResult/Num'
 
 Vue.use(Router)
 
@@ -38,7 +41,6 @@ const router = new Router({
       path: 'jiaju',
       component: Jiaju
     },
-
     {
       path: 'active',
       component: Active
@@ -70,10 +72,6 @@ const router = new Router({
     component: Pages
   },
   {
-    path: '/productGroup/:Groupid',
-    component: productGroup
-  },
-  {
     path: '/topic/:pageid',
     component: Topic
   },
@@ -82,12 +80,32 @@ const router = new Router({
     component: SearchView
   },
   {
-    path: '/searchresult',
-    component: SearchResult
+    path: '/Searchresult',
+    component: SearchResult,
+    children: [{
+      path: 'price',
+      component: Price
+    },
+    {
+      path: 'num',
+      component: Num
+    },
+    {
+      path: 'new',
+      component: New
+    },
+    {
+      path: '',
+      redirect: 'new'
+    }
+
+    ]
   },
   {
-    path: '/item/:itemid',
-    component: Item
+    path: '/item/:itemid?/:proid/:proimg/:protit/:sellp/:oripri',
+    component: Item,
+    name: 'jianjiaoitem'
+    // props: true
   },
   {
     path: '*',
