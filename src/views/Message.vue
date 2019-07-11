@@ -69,26 +69,26 @@
 
   > div:nth-of-type(2) {
     background: white;
-    >div{
-        margin-left:1.2rem ;
-        margin-right: .6rem;
-        position: relative;
-        >p:nth-of-type(1){
-            border-top: 1px solid #ccc;
-            padding-top: .3rem;
-            color: #999;
-        }
-        >p:nth-of-type(2){
-            position: absolute;
-            right: 0rem;
-            top:0rem;
-            font-size: .6rem;
-            color: yellow;
-        }
-        >p:nth-of-type(3){
-            padding-bottom: .4rem;
-             color: #999;
-        }
+    > div {
+      margin-left: 1.2rem;
+      margin-right: 0.6rem;
+      position: relative;
+      > p:nth-of-type(1) {
+        border-top: 1px solid #ccc;
+        padding-top: 0.3rem;
+        color: #999;
+      }
+      > p:nth-of-type(2) {
+        position: absolute;
+        right: 0rem;
+        top: 0rem;
+        font-size: 0.6rem;
+        color: yellow;
+      }
+      > p:nth-of-type(3) {
+        padding-bottom: 0.4rem;
+        color: #999;
+      }
     }
   }
 }
@@ -96,17 +96,20 @@
 
 <script>
 import headbar from '@/components/HeadBar'
-import axios from 'axios'
 export default {
   data () {
     return {
       datalist: []
     }
   },
+  beforeMount () {
+    this.$store.commit('HideTabbar', false)
+  },
+  beforeDestroy () {
+    this.$store.commit('ShowTabbar', true)
+  },
   mounted () {
-    axios.get('/message/messageMain?_=1562669381688').then(res => {
-      console.log(res.data)
-    })
+
   },
   components: {
     headbar

@@ -1,39 +1,28 @@
 <template>
   <div>
+        <search v-model="value"></search>
     <div class="all">
       <div class="head">
-        <search class="search"></search>
+        <search class="search" v-model="value"></search>
         <i class="iconfont icon-tabhome" @click="$router.push({path:'/index'})"></i>
       </div>
       <div class="searchCon">
         <div class="hot">
           <p class="hotTitle">热门搜索</p>
-          <div class="keyword"><span class="searchHotkeyword">尖叫实验室</span></div>
-          <div class="keyword"><span class="searchHotkeyword">暖手宝</span></div>
-          <div class="keyword"><span class="searchHotkeyword">沙发</span></div>
-          <div class="keyword"><span class="searchHotkeyword">杯子</span></div>
-          <div class="keyword"><span class="searchHotkeyword">餐具</span></div>
-          <div class="keyword"><span class="searchHotkeyword">茶具</span></div>
-          <div class="keyword"><span class="searchHotkeyword">吊灯</span></div>
-          <div class="keyword"><span class="searchHotkeyword">厨房</span></div>
-          <div class="keyword"><span class="searchHotkeyword">儿童</span></div>
-          <div class="keyword"><span class="searchHotkeyword">HAY</span></div>
-          <div class="keyword"><span class="searchHotkeyword">Arabia</span></div>
-          <div class="keyword"><span class="searchHotkeyword">家饰</span></div>
-          <div class="keyword"><span class="searchHotkeyword">收纳 </span></div>
-          <div class="keyword"><span class="searchHotkeyword">床上用品</span></div>
-          <div class="keyword"><span class="searchHotkeyword">旅行</span></div>
+          <div class="keyword" v-for="data in searchlist" :key="data.hortsearch" @click="handleClick(data.hortsearch)">
+            <span class="searchHotkeyword">{{data.hortsearch}}</span>
+            </div>
         </div>
         <div class="history">
           <div class="historyTop">
             <p class="historyTitle">历史搜索</p>
             <div class="cleanSearchDiv">
-              <p class="cleanSearchIcon">删除</p>
+              <p class="cleanSearchIcon">×</p>
             </div>
           </div>
           <div class="searchHistory">
             <div class="keyword">
-              <span class="searchHotkeyword"></span>
+              <span class="searchHotkeyword">sssss</span>
             </div>
           </div>
         </div>
@@ -44,8 +33,29 @@
 
 <script>
 import search from '@/components/Search'
+import axios from 'axios'
 
 export default {
+  data () {
+    return {
+      searchlist: '',
+      value: ''
+    }
+  },
+  methods: {
+    handleClick (id) {
+      console.log(id)
+      console.log(window.encodeURI(id))
+      this.value = id
+      this.$router.push(`/searchresult?keyword=${id}`)
+    }
+  },
+  mounted () {
+    axios('./data.json').then(res => {
+      this.searchlist = res.data.search
+      console.log(res.data.search)
+    })
+  },
   beforeCreate () {
     this.$store.commit('HideTabbar', false)
   },
@@ -108,6 +118,7 @@ export default {
         padding: 0.36rem 0.32rem 0rem;
         .historyTop{
           .historyTitle{
+          color: #808080;
           width: 85%;
           display: inline-block;
           }
@@ -126,6 +137,7 @@ export default {
           display: inline-block;
           margin-bottom: 0.6rem;
             >span{
+            display:block;
             font-size: 0.24rem;
             color: #000;
             text-align: center;

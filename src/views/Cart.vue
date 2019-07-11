@@ -15,7 +15,7 @@
       infinite-scroll-disabled="loading"
       infinite-scroll-distance="10"
     >
-      <div class="li" v-for="data in datalist" :key="data.productId">
+      <div class="li" v-for="data in datalist" :key="data.productId" @click="handlychange(data.productId)">
         <img :src="data.productImg" />
         <div class="product-title-box">
           <p class="product-subtitle">{{data.productTitle}}</p>
@@ -47,6 +47,9 @@ export default {
     }
   },
   methods: {
+    handlychange (Id) {
+      this.$router.push(`/item/${Id}`)
+    },
     loadMore () {
       this.loading = true
       this.index++
@@ -104,7 +107,7 @@ export default {
   .li {
     background: #fff;
     float: left;
-    width: 49.7%;
+    width: 49.5%;
     border-right: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
     font-size: 0;

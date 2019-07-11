@@ -25,6 +25,7 @@ export default {
     }
   },
   components: {
+    // props: ['value'],
     search,
     tabbar
   }
