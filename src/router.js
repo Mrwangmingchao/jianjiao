@@ -21,6 +21,7 @@ import New from '@/views/SearchResult/New'
 import Price from '@/views/SearchResult/Price'
 import Num from '@/views/SearchResult/Num'
 import SortItem from '@/views/SortItem'
+import mirrorofhalve from '@/views/mirrorofhalve'
 
 Vue.use(Router)
 
@@ -67,6 +68,10 @@ const router = new Router({
   {
     path: '/productGroup/:Groupid',
     component: productGroup
+  },
+  {
+    path: '/mirrorofhalve',
+    component: mirrorofhalve
   },
   {
     path: '/sort',

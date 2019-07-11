@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isTabbarShow: true,
-    id: 0
+    id: 0,
+    valuelist: []
   },
   mutations: {
     HideTabbar (state, data) {

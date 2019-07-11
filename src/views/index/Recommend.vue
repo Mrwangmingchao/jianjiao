@@ -6,13 +6,27 @@
       </mt-swipe-item>
     </swipe>
     <div class="module-all">
-      <div class="module-2" v-for="(item) in itemlist" :key="item.moduleId">
+      <div class="module-2" v-for="(item) in itemlist" :key="item.moduleId" @click="$router.push('/mirrorofhalve')">
+        <h3>{{item.moduleName}}</h3>
+        <p>{{item.moduleDescription}}</p>
+        <img :src="img.bannerImgSrc" v-for="img in item.moduleContent.banners" :key="img.id" />
+      </div>
+
+       <div class="module-2" v-for="(item) in buildlist" :key="item.moduleId"  @click="$router.push(`/topic/${item.moduleContent.banners[0].bannerLinkTargetId}`)">
+        <h3>{{item.moduleName}}</h3>
+        <p>{{item.moduleDescription}}</p>
+        <img :src="img.bannerImgSrc" v-for="img in item.moduleContent.banners" :key="img.id" />
+      </div>
+      <p class="moudle-bottom">已经到底了</p>
+
+       <div class="module-2" v-for="(item) in anotherlist" :key="item.moduleId" >
         <h3>{{item.moduleName}}</h3>
         <p>{{item.moduleDescription}}</p>
         <img :src="img.bannerImgSrc" v-for="img in item.moduleContent.banners" :key="img.id" />
       </div>
       <p class="moudle-bottom">已经到底了</p>
     </div>
+
   </div>
 </template>
 <script>
@@ -26,7 +40,9 @@ export default {
   data () {
     return {
       datalist: [],
-      itemlist: []
+      itemlist: [],
+      buildlist: [],
+      anotherlist: []
     }
   },
   mounted () {
@@ -36,6 +52,9 @@ export default {
       this.datalist = res.data.data.modules[0].moduleContent.banners
       this.itemlist = res.data.data.modules.slice(1)
       // console.log(res.data.data)
+      this.itemlist = res.data.data.modules.slice(1, 2)
+      this.buildlist = res.data.data.modules.slice(2, 5)
+      this.anotherlist = res.data.data.modules.slice(5)
     })
   },
   methods: {
