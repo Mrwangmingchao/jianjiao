@@ -2,7 +2,8 @@
   <div id="box">
     <swipe v-if="itemlist.moduleContent">
       <mt-swipe-item v-for="data in itemlist.moduleContent.banners" :key="data.id">
-        <img :src="data.bannerImgSrc" @click="handlyChangePage(data.id)" />
+        <img :src="data.bannerImgSrc" @click="handlyChangePage(data.productId,data.parentProductId,
+                 data.productImg,data.productTitle,data.sellPrice,data.originalPrice)" />
       </mt-swipe-item>
     </swipe>
     <div class="banner">
@@ -16,7 +17,8 @@
             class="swiper-slide"
             v-for="data in datalist.moduleContent.products"
             :key="data.productId"
-            @click="handlyChangePage(data.productId)"
+            @click="handlyChangePage(data.productId,data.parentProductId,
+                 data.productImg,data.productTitle,data.sellPrice,data.originalPrice)"
           >
             <img :src="data.productImg" class="photos" />
             <p>{{data.productTitle}}</p>
@@ -38,7 +40,8 @@
           v-for="item in  data.moduleContent.products.slice(0,6)"
           :key="item.productId"
           class="product"
-          @click="handlyChangePage(item.productId)"
+          @click="handlyChangePage(item.productId,item.parentProductId,
+                 item.productImg,item.productTitle,item.sellPrice,item.originalPrice)"
         >
           <img :src="item.productImg" alt />
           <div class="message">
@@ -95,8 +98,12 @@ export default {
       })
   },
   methods: {
-    handlyChangePage (Id) {
-      this.$router.push(`/item/${Id}`)
+    handlyChangePage (itemid, proid, proimg, protit, sellp, oripri) {
+      document.documentElement.scrollTop = 0
+      this.$router.push({
+        name: 'jianjiaoitem',
+        params: { itemid: itemid, proid: proid, proimg: proimg, protit: protit, sellp: sellp, oripri: oripri }
+      })
     },
     handlyChangeGroup (Id) {
       this.$router.push(`/productGroup/${Id}`)
@@ -218,7 +225,4 @@ export default {
     line-height: 1rem;
     background: white;
   }
-</style>
-
-<style lang="scss" scoped>
 </style>
