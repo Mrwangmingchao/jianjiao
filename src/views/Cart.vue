@@ -15,7 +15,13 @@
       infinite-scroll-disabled="loading"
       infinite-scroll-distance="10"
     >
-      <div class="li" v-for="data in datalist" :key="data.productId" @click="handlychange(data.productId)">
+      <div
+        class="li"
+        v-for="data in datalist"
+        :key="data.productId"
+        @click="handlychange(data.productId,data.parentProductId,
+                 data.productImg,data.productTitle,data.sellPrice,data.originalPrice)"
+      >
         <img :src="data.productImg" />
         <div class="product-title-box">
           <p class="product-subtitle">{{data.productTitle}}</p>
@@ -47,8 +53,19 @@ export default {
     }
   },
   methods: {
-    handlychange (Id) {
-      this.$router.push(`/item/${Id}`)
+    handlychange (itemid, proid, proimg, protit, sellp, oripri) {
+      document.documentElement.scrollTop = 0
+      this.$router.push({
+        name: 'jianjiaoitem',
+        params: {
+          itemid: itemid,
+          proid: proid,
+          proimg: proimg,
+          protit: protit,
+          sellp: sellp,
+          oripri: oripri
+        }
+      })
     },
     loadMore () {
       this.loading = true
@@ -67,7 +84,7 @@ export default {
       url: '/recommend/cart?currentPage=1&_=1562649983191'
     }).then(res => {
       this.datalist = res.data.data
-    //   console.log(res.data.data);
+      //   console.log(res.data.data);
     })
   },
   beforeDestroy () {

@@ -14,7 +14,7 @@ import Topic from '@/views/Topic'
 import SearchView from '@/views/SearchView'
 import SearchResult from '@/views/SearchResult'
 import Item from '@/views/Item'
-// import productGroup from '@/views/productGroup'
+import productGroup from '@/views/productGroup'
 import List from '@/views/message/List'
 import userCenterPage from '@/views/userCenterPage'
 import New from '@/views/SearchResult/New'
@@ -62,6 +62,10 @@ const router = new Router({
   {
     path: '/mine',
     component: Mine
+  },
+  {
+    path: '/productGroup/:Groupid',
+    component: productGroup
   },
   {
     path: '/sort',
