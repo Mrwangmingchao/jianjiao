@@ -103,8 +103,10 @@ const router = new Router({
     ]
   },
   {
-    path: '/item/:itemid',
-    component: Item
+    path: '/item/:itemid?/:proid/:proimg/:protit/:sellp/:oripri',
+    component: Item,
+    name: 'jianjiaoitem'
+    // props: true
   },
   {
     path: '*',
