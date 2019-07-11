@@ -62,6 +62,9 @@
 
 <script>
 import headbar from '@/components/HeadBar'
+import { Picker } from 'mint-ui'
+import Vue from 'vue'
+Vue.component(Picker.name, Picker)
 export default {
   data () {
     return {}

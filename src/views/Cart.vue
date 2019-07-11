@@ -15,7 +15,7 @@
       infinite-scroll-disabled="loading"
       infinite-scroll-distance="10"
     >
-      <div class="li" v-for="data in datalist" :key="data.productId">
+      <div class="li" v-for="data in datalist" :key="data.productId" @click="handlychange(data.productId)">
         <img :src="data.productImg" />
         <div class="product-title-box">
           <p class="product-subtitle">{{data.productTitle}}</p>
@@ -47,13 +47,16 @@ export default {
     }
   },
   methods: {
+    handlychange (Id) {
+      this.$router.push(`/item/${Id}`)
+    },
     loadMore () {
       this.index++
       axios({
         url: `/recommend/cart?currentPage=${this.index}&_=1562659386221`
       }).then(res => {
         this.datalist = [...this.datalist, ...res.data.data]
-        //   console.log(res)
+        console.log(this.datalist)
       })
     }
   },
