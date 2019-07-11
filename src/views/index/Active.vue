@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     handlePage (id) {
-      this.$router.push(`/Pages/${id}`)
+      this.$router.push(`/productGroup/${id}`)
     },
     handleItem (itemid, proid, proimg, protit, sellp, oripri) {
       document.documentElement.scrollTop = 0

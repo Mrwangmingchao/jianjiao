@@ -226,6 +226,3 @@ export default {
     background: white;
   }
 </style>
-
-<style lang="scss" scoped>
-</style>
