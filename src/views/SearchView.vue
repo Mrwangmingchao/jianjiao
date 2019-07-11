@@ -49,8 +49,6 @@ export default {
       this.$store.state.valuelist = []
     },
     handleClick (id) {
-      console.log(id)
-      console.log(window.encodeURI(id))
       this.$store.state.valuelist.push(id)
       this.value = id
       this.$router.push(`/searchresult?keyword=${id}`)
@@ -59,7 +57,6 @@ export default {
   mounted () {
     axios('./data.json').then(res => {
       this.searchlist = res.data.search
-      console.log(res.data.search)
     })
   },
   beforeCreate () {

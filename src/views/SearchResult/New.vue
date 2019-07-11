@@ -31,8 +31,6 @@ export default {
   },
   methods: {
     handleClick (id, proid, proimg, protit, sellp, oripri) {
-      console.log(id)
-      console.log(this.value)
       this.$router.push({
         name: 'jianjiaoitem',
         params: { id: id, proid: proid, proimg: proimg, protit: protit, sellp: sellp, oripri: oripri }
@@ -42,7 +40,6 @@ export default {
       this.isShow = false
     },
     loadMore () {
-      console.log(window.encodeURI(this.$router.history.current.query.keyword))
       var word = window.encodeURI(this.$router.history.current.query.keyword)
       this.current++
       axios({

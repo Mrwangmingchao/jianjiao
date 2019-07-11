@@ -51,7 +51,6 @@ export default {
     }).then(res => {
       this.datalist = res.data.data.modules[0].moduleContent.banners
       this.itemlist = res.data.data.modules.slice(1)
-      // console.log(res.data.data)
       this.itemlist = res.data.data.modules.slice(1, 2)
       this.buildlist = res.data.data.modules.slice(2, 5)
       this.anotherlist = res.data.data.modules.slice(5)

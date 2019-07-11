@@ -83,7 +83,6 @@ export default {
         this.datalist = res.data.data.modules[1]
         this.itemlist = res.data.data.modules[0]
         this.anotherlist = res.data.data.modules.splice(2)
-        console.log(this.anotherlist)
 
         this.$nextTick(() => {
           const k = new Swiper('.filmswiper', {
@@ -94,7 +93,6 @@ export default {
           this.isShow = true
           return k
         })
-        // console.log(this.datalist);
       })
   },
   methods: {

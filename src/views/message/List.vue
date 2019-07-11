@@ -17,7 +17,6 @@ export default {
   },
   mounted () {
     axios.get('/message/messageList?msgType=2&currentPage=1&pageSize=10&_=1562725357853').then(res => {
-      console.log(res.data)
     })
   },
   components: {

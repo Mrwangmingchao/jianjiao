@@ -75,7 +75,6 @@ export default {
       }).then(res => {
         this.datalist = [...this.datalist, ...res.data.data]
         this.loading = false
-        //   console.log(res)
       })
     }
   },
@@ -84,7 +83,6 @@ export default {
       url: '/recommend/cart?currentPage=1&_=1562649983191'
     }).then(res => {
       this.datalist = res.data.data
-      //   console.log(res.data.data);
     })
   },
   beforeDestroy () {

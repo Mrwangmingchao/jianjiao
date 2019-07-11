@@ -39,7 +39,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$store.state.id)
     axios({
       url: `/pages/category/${this.$store.state.id}?currentPage=1&sort=price&order=asc&_=1562829776445`
     }).then(res => {
@@ -56,7 +55,6 @@ export default {
       }).then(res => {
         this.datalist = [...this.datalist, ...res.data.data]
         this.loading = false
-        //   console.log(res)
       })
     }
   },

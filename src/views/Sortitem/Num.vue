@@ -54,7 +54,6 @@ export default {
       }).then(res => {
         this.datalist = [...this.datalist, ...res.data.data]
         this.loading = false
-        //   console.log(res)
       })
     }
   },

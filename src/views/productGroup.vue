@@ -37,12 +37,10 @@ export default {
     this.$store.commit('ShowTabbar', true)
   },
   mounted () {
-    console.log(this.$route.params.Groupid)
     axios
       .get(`/pages/productGroup/${this.$route.params.Groupid}/products?currentPage=1&_=1562649396851`)
       .then(res => {
         this.datalist = res.data.data
-        console.log(this.datalist)
       })
   },
   methods: {
@@ -64,7 +62,6 @@ export default {
           `/pages/productGroup/${this.$route.params.Groupid}/products?currentPage=${this.num}&_=1562649396851`
         )
         .then(res => {
-          console.log(res.data.data)
           if (res.data.data.length === 0) {
             this.loading = false
             return

@@ -22,18 +22,7 @@ export default {
       this.$router.push({ path: '/searchview' })
     },
     handleClickenter (value) {
-    //   console.log('aaaa')
-      // console.log(value)
-      // this.valuelist.push(value)
-      //   console.log(this.valuelist)
-      //   window.localStorage.setItem('search', JSON.stringify(value))
-      //   var password=window.encodeURI(value)
-      // axios({
-      //   url:`/product/search?keyword=${password}&sort=onShelfTime&order=desc&currentPage=1&_=1562634054333`
-      // }).then(res=>{
-      // })
       this.$store.state.valuelist.push(value)
-      console.log(this.$store.state.valuelist)
       this.$router.push({ path: `/Searchresult/new?keyword=${value}` })
     }
   }

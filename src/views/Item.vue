@@ -163,12 +163,9 @@ export default {
   },
   watch: {
     $route () {
-    //   console.log(this.$route.params.itemid, this.$route.params.proid, this.$route.params.protit, this.$route.params.sellp
-      // , this.$route.params.oripri)
       axios({
         url: `/recommend/item?skuId=${this.$route.params.itemid}&_=1562632237912`
       }).then(res => {
-        // console.log(res.data)
         this.likelist = res.data.data
       })
       axios({
