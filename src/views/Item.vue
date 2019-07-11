@@ -106,42 +106,42 @@ export default {
     this.$ajax({
       url: `/recommend/item?skuId=${this.$route.params.itemid}&_=1562632237912`
     }).then(res => {
-      console.log(res.data)
+    //   console.log(res.data)
       this.likelist = res.data.data
     })
     this.$ajax({
       url: `/itemdetail/spuInfos/${this.$route.params.proid}?_=1562662432945`
     }).then(res => {
-      console.log(res.data.data)
+    //   console.log(res.data.data)
       this.itemdetail = res.data.data.itemDetailIntroVoList
     })
     this.$ajax({
       url: `/itemdetail/skuInfos/${this.$route.params.itemid}?_=1562670717309`
     }).then(res => {
-      console.log(res.data.data.skuAttrPairs)
+    //   console.log(res.data.data.skuAttrPairs)
       this.specificationlist = res.data.data.skuAttrPairs
     })
   },
   watch: {
     $route () {
-      console.log(this.$route.params.itemid, this.$route.params.proid, this.$route.params.protit, this.$route.params.sellp
-        , this.$route.params.oripri)
+    //   console.log(this.$route.params.itemid, this.$route.params.proid, this.$route.params.protit, this.$route.params.sellp
+      // , this.$route.params.oripri)
       axios({
         url: `/recommend/item?skuId=${this.$route.params.itemid}&_=1562632237912`
       }).then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         this.likelist = res.data.data
       })
       axios({
         url: `/itemdetail/spuInfos/${this.$route.params.proid}?_=1562662432945`
       }).then(res => {
-        console.log(res.data.data)
+        // console.log(res.data.data)
         this.itemdetail = res.data.data.itemDetailIntroVoList
       })
       axios({
         url: `/itemdetail/skuInfos/${this.$route.params.itemid}?_=1562670717309`
       }).then(res => {
-        console.log(res.data.data.skuAttrPairs)
+        // console.log(res.data.data.skuAttrPairs)
         this.specificationlist = res.data.data.skuAttrPairs
       })
     }
