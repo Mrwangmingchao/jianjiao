@@ -27,6 +27,12 @@ module.exports = {
       '/topic': {
         target: 'https://m.wowdsgn.com',
         changeOrigin: true
+      },
+      '/product': {
+        target: 'https://m.wowdsgn.com',
+        // ws: true,
+        changeOrigin: true
+        //   target: '<other_url>'
       }
     }
   }
