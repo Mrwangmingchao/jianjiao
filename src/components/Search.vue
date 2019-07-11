@@ -2,7 +2,7 @@
   <div>
     <div class="search-box">
       <i class="iconfont icon-fangdajing"></i>
-      <input type="text" placeholder="搜索我的尖叫好物" @click="handleClick"  v-model="value" @keyup.enter="handleClickenter()"/>
+      <input type="text" placeholder="搜索我的尖叫好物" @click="handleClick"  v-model="value" @keyup.enter="handleClickenter(value)"/>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
       console.log(value)
       this.valuelist.push(value)
       console.log(this.valuelist)
-      window.localStorage.setItem('search', JSON.stringify('value'))
+      window.localStorage.setItem('search', JSON.stringify(value))
     }
   }
 }
