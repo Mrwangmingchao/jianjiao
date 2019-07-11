@@ -2,8 +2,8 @@
     <div>
         <img src="https://img.wowdsgn.com/page/banners/55cd6c66-8c52-41f6-9976-23800ca16331_2dimension_750x752.jpg" alt="">
         <img src="https://img.wowdsgn.com/page/banners/43364252-2272-40cc-8ed0-4ab91a2870d1_2dimension_750x264.jpg" alt="">
-        <img src="https://img.wowdsgn.com/page/banners/b0f2af0d-e7f7-4e57-84f8-84bf5e2389b2_2dimension_750x904.jpg" alt="">
-        <img src="https://img.wowdsgn.com/page/banners/59c81112-3079-481a-a5b8-6030014c8133_2dimension_750x847.jpg" alt="">
+        <img src="https://img.wowdsgn.com/page/banners/b0f2af0d-e7f7-4e57-84f8-84bf5e2389b2_2dimension_750x904.jpg" >
+        <img src="https://img.wowdsgn.com/page/banners/59c81112-3079-481a-a5b8-6030014c8133_2dimension_750x847.jpg" alt="" @click="$router.push('/item/16573?')">
         <img src="https://img.wowdsgn.com/page/banners/412f1cd1-3f05-4183-88f5-46e48f49a0f0_2dimension_750x960.jpg" alt="">
         <img src="https://img.wowdsgn.com/page/banners/fe9af14f-8007-4dc0-8c1b-a42336112ef6_2dimension_750x969.jpg" alt="">
         <img src="https://img.wowdsgn.com/page/banners/f9973c04-9d3f-4636-b0d3-7883cc18a3e1_2dimension_750x916.jpg" alt="">

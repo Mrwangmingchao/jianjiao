@@ -1,5 +1,6 @@
 <template>
   <div id="box">
+    <img src="https://img.wowdsgn.com/product-group/images/3709cefe-baf5-486b-b3ab-f6dd9037ef7a_2dimension_750x620.jpg?imageslim" alt="">
     <ul
       v-infinite-scroll="loadMore"
       infinite-scroll-disabled="loading"
@@ -77,6 +78,9 @@ export default {
 <style lang="scss" scoped>
 #box {
   margin-bottom: 1rem;
+  >img{
+    width: 100%;
+  }
   > ul {
     display: flex;
     flex-wrap: wrap;
