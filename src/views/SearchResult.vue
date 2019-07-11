@@ -7,9 +7,9 @@
         <tabbar class="isHidden"></tabbar>
       </div>
       <ul>
-        <router-link to="/Searchresult/new" tag="li" activeClass="myactive">上新</router-link>
-        <router-link to="/Searchresult/num" tag="li" activeClass="myactive">销量</router-link>
-        <router-link to="/Searchresult/price" tag="li" activeClass="myactive">价格</router-link>
+        <router-link :to="'/Searchresult/new?keyword='+this.word" tag="li" activeClass="myactive">上新</router-link>
+        <router-link :to="'/Searchresult/num?keyword='+this.word" tag="li" activeClass="myactive">销量</router-link>
+        <router-link :to="'/Searchresult/price?keyword='+this.word" tag="li" activeClass="myactive">价格</router-link>
       </ul>
       <router-view></router-view>
   </div>
@@ -21,13 +21,22 @@ import tabbar from '@/components/Tabbar'
 export default {
   data () {
     return {
-      value: ''
+      value: '',
+      word: ''
     }
   },
+  mounted () {
+    this.word = this.$router.history.current.query.keyword
+  },
   components: {
-    // props: ['value'],
     search,
     tabbar
+  },
+  beforeCreate () {
+    this.$store.commit('HideTabbar', false)
+  },
+  beforeDestroy () {
+    this.$store.commit('ShowTabbar', true)
   }
 }
 </script>

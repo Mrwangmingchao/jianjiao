@@ -17,12 +17,14 @@
           <div class="historyTop">
             <p class="historyTitle">历史搜索</p>
             <div class="cleanSearchDiv">
-              <p class="cleanSearchIcon">×</p>
+              <p class="cleanSearchIcon" @click="handleClickDel()">×</p>
             </div>
           </div>
           <div class="searchHistory">
             <div class="keyword">
-              <span class="searchHotkeyword">sssss</span>
+              <span class="searchHotkeyword" v-for=" (his,index) in this.$store.state.valuelist" :key="index">
+                {{his}}
+              </span>
             </div>
           </div>
         </div>
@@ -43,9 +45,13 @@ export default {
     }
   },
   methods: {
+    handleClickDel () {
+      this.$store.state.valuelist = []
+    },
     handleClick (id) {
       console.log(id)
       console.log(window.encodeURI(id))
+      this.$store.state.valuelist.push(id)
       this.value = id
       this.$router.push(`/searchresult?keyword=${id}`)
     }
@@ -69,6 +75,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+html,body{
+  height:100%;
+  width:100%;
+  background-color: #fff;
+}
 .all {
   height: 6.67rem;
   background: #fff;
@@ -115,6 +126,7 @@ export default {
       }
     }
     .history{
+      background: #F5F5F5;
         padding: 0.36rem 0.32rem 0rem;
         .historyTop{
           .historyTitle{
@@ -133,16 +145,19 @@ export default {
           }
         }
         .searchHistory{
+              background: #F5F5F5;
           .keyword{
           display: inline-block;
           margin-bottom: 0.6rem;
             >span{
+            margin-top: 0.3rem;
+            float: left;
             display:block;
             font-size: 0.24rem;
             color: #000;
             text-align: center;
             padding: 0.2rem 0.3rem;
-            background-color: #F5F5F5;
+            background-color: #fff;
             margin-right: 0.2rem;
           }
           }

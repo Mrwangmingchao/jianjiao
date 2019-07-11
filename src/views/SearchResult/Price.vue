@@ -7,7 +7,8 @@
         <ul v-infinite-scroll="loadMore"
             infinite-scroll-disabled="loading"
             infinite-scroll-distance="10">
-        <li v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId)">
+        <li v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId,data.parentProductId,
+                 data.productImg,data.productTitle,data.sellPrice,data.originalPrice)">
                 <img :src="data.productImg" alt="">
                 <div class="block"></div>
                 <p>{{data.productTitle}}</p>
@@ -35,9 +36,12 @@ export default {
     }
   },
   methods: {
-    handleClick (id) {
+    handleClick (id, proid, proimg, protit, sellp, oripri) {
       console.log(id)
-      this.$router.push(`/item/${id}`)
+      this.$router.push({
+        name: 'jianjiaoitem',
+        params: { id: id, proid: proid, proimg: proimg, protit: protit, sellp: sellp, oripri: oripri }
+      })
     },
 
     handleClickDown () {
@@ -53,22 +57,18 @@ export default {
       this.loadMore(this.isPrice)
     },
     loadMore (fqr) {
-      this.loading = true
+      console.log(window.encodeURI(this.$router.history.current.query.keyword))
+      var word = window.encodeURI(this.$router.history.current.query.keyword)
       this.current++
       axios({
-        url: `/product/search?keyword=%E6%9D%AF%E5%AD%90&sort=price&order=${fqr ? 'asc' : 'desc'}&currentPage=${this.current}&_=1562671428405`
+        url: `/product/search?keyword=${word}&sort=price&order=${fqr ? 'asc' : 'desc'}&currentPage=${this.current}&_=1562671428405`
       }).then(res => {
         this.datalist = [...this.datalist, ...res.data.data.products]
-        this.loading = false
+        if (res.data === []) {
+          this.loading = true
+        }
       })
     }
-  },
-  mounted () {
-    axios({
-      url: '/product/search?keyword=%E6%9D%AF%E5%AD%90&sort=price&order=desc&currentPage=1&_=1562664657580'
-    }).then(res => {
-      this.datalist = res.data.data.products
-    })
   }
 }
 </script>
