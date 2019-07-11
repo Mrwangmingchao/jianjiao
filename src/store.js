@@ -8,7 +8,12 @@ export default new Vuex.Store({
     isTabbarShow: true
   },
   mutations: {
-
+    HideTabbar (state, data) {
+      state.isTabbarShow = data
+    },
+    ShowTabbar (state, data) {
+      state.isTabbarShow = data
+    }
   },
   actions: {
 

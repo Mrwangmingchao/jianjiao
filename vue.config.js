@@ -15,8 +15,19 @@ module.exports = {
         target: 'https://m.wowdsgn.com',
         // ws: true,
         changeOrigin: true
+      },
+      '/pages': {
+        target: 'https://m.wowdsgn.com',
+        changeOrigin: true
+      },
+      '/message': {
+        target: 'https://m.wowdsgn.com',
+        changeOrigin: true
+      },
+      '/topic': {
+        target: 'https://m.wowdsgn.com',
+        changeOrigin: true
       }
-
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
   <div>
     <swipe>
-       <mt-swipe-item v-for="data in datalist" :key="data.id">
-        <img :src="data.bannerImgSrc" />
+       <mt-swipe-item v-for="data in datalist" :key="data.id" >
+        <img :src="data.bannerImgSrc" @click="handleSwipe(data)"/>
       </mt-swipe-item>
     </swipe>
     <div class="module-all">
@@ -15,7 +15,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from 'axios'
 import swipe from '@/components/Swipe'
@@ -36,7 +35,13 @@ export default {
     }).then(res => {
       this.datalist = res.data.data.modules[0].moduleContent.banners
       this.itemlist = res.data.data.modules.slice(1)
+      // console.log(res)
     })
+  },
+  methods: {
+    handleSwipe (data) {
+      this.$router.push({ path: `/pages/${data.id}`, params: { data: data } })
+    }
   }
 }
 </script>
