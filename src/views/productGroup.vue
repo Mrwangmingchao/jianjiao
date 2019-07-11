@@ -74,14 +74,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 #box {
-  margin-bottom: 1rem;
-  >img{
+  padding-bottom: 1rem;
+  background: #fff;
+  img{
     width: 100%;
   }
-  > ul {
+   ul {
     display: flex;
     flex-wrap: wrap;
-    > li {
+     li {
       width: 50%;
       background: white;
       border: 1px solid rgb(245, 245, 245);
@@ -89,7 +90,7 @@ export default {
       img {
         width: 100%;
       }
-      > p {
+      p {
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
