@@ -15,7 +15,13 @@
       infinite-scroll-disabled="loading"
       infinite-scroll-distance="10"
     >
-      <div class="li" v-for="data in datalist" :key="data.productId">
+      <div
+        class="li"
+        v-for="data in datalist"
+        :key="data.productId"
+        @click="handlychange(data.productId,data.parentProductId,
+                 data.productImg,data.productTitle,data.sellPrice,data.originalPrice)"
+      >
         <img :src="data.productImg" />
         <div class="product-title-box">
           <p class="product-subtitle">{{data.productTitle}}</p>
@@ -47,13 +53,27 @@ export default {
     }
   },
   methods: {
+    handlychange (itemid, proid, proimg, protit, sellp, oripri) {
+      document.documentElement.scrollTop = 0
+      this.$router.push({
+        name: 'jianjiaoitem',
+        params: {
+          itemid: itemid,
+          proid: proid,
+          proimg: proimg,
+          protit: protit,
+          sellp: sellp,
+          oripri: oripri
+        }
+      })
+    },
     loadMore () {
       this.index++
       axios({
         url: `/recommend/cart?currentPage=${this.index}&_=1562659386221`
       }).then(res => {
         this.datalist = [...this.datalist, ...res.data.data]
-        //   console.log(res)
+        console.log(this.datalist)
       })
     }
   },
@@ -62,7 +82,7 @@ export default {
       url: '/recommend/cart?currentPage=1&_=1562649983191'
     }).then(res => {
       this.datalist = res.data.data
-    //   console.log(res.data.data);
+      //   console.log(res.data.data);
     })
   },
   beforeDestroy () {
@@ -102,7 +122,7 @@ export default {
   .li {
     background: #fff;
     float: left;
-    width: 49.7%;
+    width: 49.5%;
     border-right: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
     font-size: 0;

@@ -5,7 +5,8 @@
       infinite-scroll-disabled="loading"
       infinite-scroll-distance="10"
     >
-      <li v-for="item in datalist" :key="item.productId">
+      <li v-for="item in datalist" :key="item.productId" @click='handlychange(item.productId,item.parentProductId,
+                 item.productImg,item.productTitle,item.sellPrice,item.originalPrice)' >
         <img :src="item.productImg" />
         <p>{{item.productTitle}}</p>
         <p>￥{{item.sellPrice}}</p>
@@ -35,15 +36,23 @@ export default {
     this.$store.commit('ShowTabbar', true)
   },
   mounted () {
-    //   console.log(this.$route.params.Groupid)
-    // axios
-    //   .get(`/pages/productGroup/${this.$route.params.Groupid}/products?currentPage=1&_=1562649396851`)
-    //   .then(res => {
-    //     this.datalist = res.data.data;
-    //     console.log(this.datalist);
-    //   });
+    console.log(this.$route.params.Groupid)
+    axios
+      .get(`/pages/productGroup/${this.$route.params.Groupid}/products?currentPage=1&_=1562649396851`)
+      .then(res => {
+        this.datalist = res.data.data
+        console.log(this.datalist)
+      })
   },
   methods: {
+    handlychange (itemid, proid, proimg, protit, sellp, oripri) {
+      document.documentElement.scrollTop = 0
+      this.$router.push({
+        name: 'jianjiaoitem',
+        params: { itemid: itemid, proid: proid, proimg: proimg, protit: protit, sellp: sellp, oripri: oripri }
+      })
+    },
+
     loadMore () {
       if (this.loading === false) return
       this.loading = true

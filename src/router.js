@@ -14,6 +14,9 @@ import Topic from '@/views/Topic'
 import SearchView from '@/views/SearchView'
 import SearchResult from '@/views/SearchResult'
 import Item from '@/views/Item'
+import productGroup from '@/views/productGroup'
+import List from '@/views/message/List'
+import userCenterPage from '@/views/userCenterPage'
 import New from '@/views/SearchResult/New'
 import Price from '@/views/SearchResult/Price'
 import Num from '@/views/SearchResult/Num'
@@ -35,10 +38,8 @@ const router = new Router({
       component: Furniture
     },
     {
-
       path: 'jiaju',
       component: Jiaju
-
     },
     {
       path: 'active',
@@ -61,6 +62,10 @@ const router = new Router({
   {
     path: '/mine',
     component: Mine
+  },
+  {
+    path: '/productGroup/:Groupid',
+    component: productGroup
   },
   {
     path: '/sort',
@@ -109,6 +114,14 @@ const router = new Router({
   {
     path: '*',
     redirect: '/index'
+  },
+  {
+    path: '/list',
+    component: List
+  },
+  {
+    path: '/userCenterPage',
+    component: userCenterPage
   }
   ]
 })

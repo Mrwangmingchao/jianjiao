@@ -20,17 +20,20 @@ module.exports = {
         target: 'https://m.wowdsgn.com',
         changeOrigin: true
       },
+      '/message': {
+        target: 'https://m.wowdsgn.com',
+        changeOrigin: true
+      },
+      '/topic': {
+        target: 'https://m.wowdsgn.com',
+        changeOrigin: true
+      },
       '/product': {
         target: 'https://m.wowdsgn.com',
         // ws: true,
         changeOrigin: true
         //   target: '<other_url>'
-      },
-      '/message': {
-        target: 'https://m.wowdsgn.com',
-        changeOrigin: true
       }
-      // '/foo': {
     }
   }
 }
