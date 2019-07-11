@@ -17,6 +17,8 @@ import Item from '@/views/Item'
 import New from '@/views/SearchResult/New'
 import Price from '@/views/SearchResult/Price'
 import Num from '@/views/SearchResult/Num'
+// import productGroup from '@/views/productGroup'
+import List from '@/views/message/List'
 
 Vue.use(Router)
 
@@ -109,6 +111,10 @@ const router = new Router({
   {
     path: '*',
     redirect: '/index'
+  },
+  {
+    path: '/list',
+    component: List
   }
   ]
 })
