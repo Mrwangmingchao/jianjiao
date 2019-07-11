@@ -5,7 +5,8 @@
       infinite-scroll-disabled="loading"
       infinite-scroll-distance="10"
     >
-      <li v-for="item in datalist" :key="item.productId" @click='handlychange(item.productId)' >
+      <li v-for="item in datalist" :key="item.productId" @click='handlychange(item.productId,item.parentProductId,
+                 item.productImg,item.productTitle,item.sellPrice,item.originalPrice)' >
         <img :src="item.productImg" />
         <p>{{item.productTitle}}</p>
         <p>￥{{item.sellPrice}}</p>
@@ -44,8 +45,12 @@ export default {
       })
   },
   methods: {
-    handlychange (Id) {
-      this.$router.push(`/item/${Id}`)
+    handlychange (itemid, proid, proimg, protit, sellp, oripri) {
+      document.documentElement.scrollTop = 0
+      this.$router.push({
+        name: 'jianjiaoitem',
+        params: { itemid: itemid, proid: proid, proimg: proimg, protit: protit, sellp: sellp, oripri: oripri }
+      })
     },
 
     loadMore () {
