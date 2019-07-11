@@ -2,10 +2,20 @@
   <div>
     <div class="search-box">
       <i class="iconfont icon-fangdajing"></i>
-      <input type="text" placeholder="搜索我的尖叫好物" />
+      <input type="text" placeholder="搜索我的尖叫好物" @click="handleClick"/>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    handleClick () {
+      this.$router.push({ path: '/searchview' })
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .search-box {

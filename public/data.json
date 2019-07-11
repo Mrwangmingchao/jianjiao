@@ -35,6 +35,23 @@
          {"id":33, "src":"https://img.wowdsgn.com/page/banners/daa24700-d448-49e2-83ae-99e967d16c86_2dimension_750x392.jpg"},
          {"id":34, "src":"https://img.wowdsgn.com/page/banners/22c5a946-5796-4a7a-86b7-84d5685e70ea_2dimension_750x409.jpg"},
          {"id":35, "src":"https://img.wowdsgn.com/page/banners/1714567c-d66c-4aa1-9172-45d62cdda461_2dimension_750x271.jpg"}
-     ]
+     ],
+     "search":[
+        {"hortsearch": "尖叫实验室"},
+        {"hortsearch": "暖手宝"},
+        {"hortsearch": "沙发"},
+        {"hortsearch": "杯子"},
+        {"hortsearch": "餐具"},
+        {"hortsearch": "茶具"},
+        {"hortsearch": "吊灯"},
+        {"hortsearch": "厨房"},
+        {"hortsearch": "儿童"},
+        {"hortsearch": "HAY"},
+        {"hortsearch": "Arabia"},
+        {"hortsearch": "家饰"},
+        {"hortsearch": "收纳"},
+        {"hortsearch": "床上用品"},
+        {"hortsearch": "旅行"}
+    ]
  }
  
