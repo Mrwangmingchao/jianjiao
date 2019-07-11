@@ -1,7 +1,8 @@
 <template>
     <div>
         <ul>
-            <li v-for ='data in datalist' :key="data.productId"  @click='handlychange(data.productId)' >
+            <li v-for ='data in datalist' :key="data.productId"  @click='handlychange(data.productId,data.parentProductId,
+                 data.productImg,data.productTitle,data.sellPrice,data.originalPrice)' >
                 <img :src="data.productImg" alt="">
                 <p>{{data.productTitle}} </p>
                  <p> ￥{{data.originalPrice}} </p>
@@ -26,9 +27,12 @@ export default {
     })
   },
   methods: {
-    handlychange (Id) {
-      console.log(Id)
-      this.$router.push(`/item/${Id}`)
+    handlychange (itemid, proid, proimg, protit, sellp, oripri) {
+      document.documentElement.scrollTop = 0
+      this.$router.push({
+        name: 'jianjiaoitem',
+        params: { itemid: itemid, proid: proid, proimg: proimg, protit: protit, sellp: sellp, oripri: oripri }
+      })
     }
   }
 }
