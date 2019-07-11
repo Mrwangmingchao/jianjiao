@@ -35,13 +35,13 @@ export default {
     this.$store.commit('ShowTabbar', true)
   },
   mounted () {
-    //   console.log(this.$route.params.Groupid)
-    // axios
-    //   .get(`/pages/productGroup/${this.$route.params.Groupid}/products?currentPage=1&_=1562649396851`)
-    //   .then(res => {
-    //     this.datalist = res.data.data;
-    //     console.log(this.datalist);
-    //   });
+    console.log(this.$route.params.Groupid)
+    axios
+      .get(`/pages/productGroup/${this.$route.params.Groupid}/products?currentPage=1&_=1562649396851`)
+      .then(res => {
+        this.datalist = res.data.data
+        console.log(this.datalist)
+      })
   },
   methods: {
     handlychange (Id) {
