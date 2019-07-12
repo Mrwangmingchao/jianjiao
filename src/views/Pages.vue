@@ -16,8 +16,8 @@ export default {
     this.$store.commit('HideTabbar', false)
   },
   mounted () {
-    axios.get('http://localhost:3000/profile').then(res => {
-      this.datalist = res.data
+    axios.get('./data.json').then(res => {
+      this.datalist = res.data.profile
     })
   },
   beforeDestroy () {

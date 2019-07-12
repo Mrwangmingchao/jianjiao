@@ -22,7 +22,7 @@ import Price from '@/views/SearchResult/Price'
 import Num from '@/views/SearchResult/Num'
 import SortItem from '@/views/SortItem'
 import mirrorofhalve from '@/views/mirrorofhalve'
-import register from '@/views/register'
+import Register from '@/views/Register'
 
 Vue.use(Router)
 
@@ -58,10 +58,7 @@ const router = new Router({
     path: '/message',
     component: Message
   },
-  {
-    path: '/register',
-    component: register
-  },
+
   {
     path: '/cart',
     component: Cart
@@ -127,6 +124,10 @@ const router = new Router({
     component: Item,
     name: 'jianjiaoitem'
     // props: true
+  },
+  {
+    path: 'register',
+    component: Register
   },
   {
     path: '*',

@@ -28,9 +28,10 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://localhost:3000/sort').then(res => {
-      this.datalist = res.data.slice(0, 7)
-      this.itemlist = res.data.slice(7)
+    axios.get('./data.json').then(res => {
+      console.log(res)
+      this.datalist = res.data.sort.slice(0, 7)
+      this.itemlist = res.data.sort.slice(7)
     })
   },
   methods: {
