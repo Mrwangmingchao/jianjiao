@@ -21,6 +21,7 @@ import New from '@/views/SearchResult/New'
 import Price from '@/views/SearchResult/Price'
 import Num from '@/views/SearchResult/Num'
 import mirrorofhalve from '@/views/mirrorofhalve'
+import register from '@/views/register'
 
 Vue.use(Router)
 
@@ -55,6 +56,10 @@ const router = new Router({
   {
     path: '/message',
     component: Message
+  },
+  {
+    path: '/register',
+    component: register
   },
   {
     path: '/cart',
