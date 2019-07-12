@@ -126,7 +126,7 @@ const router = new Router({
     // props: true
   },
   {
-    path: 'register',
+    path: '/register',
     component: Register
   },
   {
