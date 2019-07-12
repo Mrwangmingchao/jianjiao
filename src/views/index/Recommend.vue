@@ -50,10 +50,10 @@ export default {
       url: '/v2/page?pageId=1&tabId=1&currentPage=1&pageSize=8&_=1562396704509'
     }).then(res => {
       this.datalist = res.data.data.modules[0].moduleContent.banners
+      this.itemlist = res.data.data.modules.slice(1)
       this.itemlist = res.data.data.modules.slice(1, 2)
       this.buildlist = res.data.data.modules.slice(2, 5)
       this.anotherlist = res.data.data.modules.slice(5)
-      console.log(this.buildlist)
     })
   },
   methods: {

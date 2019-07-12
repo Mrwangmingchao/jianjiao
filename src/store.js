@@ -5,7 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isTabbarShow: true
+    isTabbarShow: true,
+    id: 0,
+    valuelist: []
   },
   mutations: {
     HideTabbar (state, data) {
@@ -13,6 +15,9 @@ export default new Vuex.Store({
     },
     ShowTabbar (state, data) {
       state.isTabbarShow = data
+    },
+    changeId (state, data) {
+      state.id = data
     }
   },
   actions: {

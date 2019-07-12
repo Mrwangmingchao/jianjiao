@@ -4,10 +4,10 @@
 
     <div class="userinfo" @click='handlychange'>
       <img
-        src="https://img.wowdsgn.com/product/images/38ac71d9-0886-427d-82d8-65e6b15c61f2_2dimension_800x800.jpg?imageslim"
+        src="@/assets/WechatIMG25.jpeg"
       />
-      <p>name</p>
-      <span>&gt;</span>
+      <p>GGK</p>
+      <i class="iconfont icon-arrow-right"></i>
     </div>
 
     <ul class="order-all">
@@ -15,38 +15,38 @@
         <a>全部订单</a>
       </li>
       <li>
-        <span>图标</span>
+        <i class="iconfont icon-daifukuan"></i>
         <p>
           待付款
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
-        <span>图标</span>
+        <i class="iconfont icon-daifahuo"></i>
         <p>
           待发货
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
-        <span>图标</span>
+        <i class="iconfont icon-daishouhuo"></i>
         <p>
           待收货
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
-        <span>图标</span>
+        <i class="iconfont icon-daipinglun-xianxing"></i>
         <p>
-          带评论
-          <span>&gt;</span>
+          待评论
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
-        <span>图标</span>
+       <i class="iconfont icon-tuihuanhuo1"></i>
         <p>
           退换货
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
     </ul>
@@ -55,20 +55,20 @@
       <li>
         <p>
           我的收藏
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
         <p>
           我的礼券
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
         <p>
           客服电话
           <em>周一至周五9:00-16:30</em>
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
     </ul>
@@ -115,13 +115,12 @@ export default {
       width: 1rem;
       height: 1rem;
       border-radius: 50%;
-      border: 1px solid #000;
       margin-left: 0.4rem;
     }
-    > p {
+     p {
       margin-left: 0.3rem;
     }
-    > span {
+     i {
       right: 0.5rem;
       position: absolute;
       right: 0.5rem;
@@ -130,6 +129,7 @@ export default {
 
   .order-all {
     background: white;
+    padding-left: .3rem;
     li:nth-of-type(1) {
       border-bottom: 1px solid #ccc;
       a {
@@ -143,19 +143,19 @@ export default {
       > p {
         display: inline-block;
         width: 80%;
-        margin-left: 1.4rem;
+        margin-left: 1rem;
         color: #666;
         font-size: .12rem;
 
         border-bottom: 1px solid #ccc;
-        > span:nth-of-type(1) {
+        > i:nth-of-type(1) {
           position: absolute;
           right: 0.5rem;
         }
       }
-      > span:nth-of-type(1) {
+      > i:nth-of-type(1) {
         position: absolute;
-        left: 0.5rem;
+        left: 0.2rem;
       }
     }
   }
@@ -177,7 +177,7 @@ export default {
           position: absolute;
           right: 1rem;
         }
-        > span {
+        > i {
           position: absolute;
           right: 0.5rem;
         }
@@ -192,5 +192,8 @@ export default {
       border: 0;
       color: red;
   }
+}
+i{
+  font-size: 22px;
 }
 </style>

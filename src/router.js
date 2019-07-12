@@ -20,6 +20,7 @@ import userCenterPage from '@/views/userCenterPage'
 import New from '@/views/SearchResult/New'
 import Price from '@/views/SearchResult/Price'
 import Num from '@/views/SearchResult/Num'
+import SortItem from '@/views/SortItem'
 import mirrorofhalve from '@/views/mirrorofhalve'
 import register from '@/views/register'
 
@@ -79,7 +80,13 @@ const router = new Router({
   },
   {
     path: '/sort',
-    component: Sort
+    component: Sort,
+    props: true
+  },
+  {
+    path: '/sortitem/:sortItemId/:name',
+    name: 'sortitem',
+    component: SortItem
   },
   {
     path: '/pages/:pageid',

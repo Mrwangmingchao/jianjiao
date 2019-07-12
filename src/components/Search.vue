@@ -2,17 +2,19 @@
   <div>
     <div class="search-box">
       <i class="iconfont icon-fangdajing"></i>
-      <input type="text" placeholder="搜索我的尖叫好物" @click="handleClick"  v-model="value" @keyup.enter="handleClickenter()"/>
+      <input type="text" :placeholder="message" @click="handleClick"  v-model="value" @keyup.enter="handleClickenter(value)" />
+
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   data () {
     return {
       value: '',
-      valuelist: []
+      message: '搜索我的尖叫好物'
     }
   },
   methods: {
@@ -20,11 +22,8 @@ export default {
       this.$router.push({ path: '/searchview' })
     },
     handleClickenter (value) {
-      console.log('aaaa')
-      console.log(value)
-      this.valuelist.push(value)
-      console.log(this.valuelist)
-      window.localStorage.setItem('search', JSON.stringify('value'))
+      this.$store.state.valuelist.push(value)
+      this.$router.push({ path: `/Searchresult/new?keyword=${value}` })
     }
   }
 }

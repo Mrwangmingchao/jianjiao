@@ -23,7 +23,6 @@ export default {
   mounted () {
     axios.get(`/topic/${this.$route.params.pageid}/products?_=1562729721363`).then(res => {
       this.datalist = res.data.lists
-      console.log(this.$route.params.pageid)
     })
   },
   methods: {

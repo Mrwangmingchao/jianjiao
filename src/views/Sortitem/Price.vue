@@ -1,14 +1,5 @@
 <template>
   <div>
-    <headbar>
-      <h3>购物车</h3>
-    </headbar>
-    <div class="cart">
-      <p class="cart-empty">您的购物车还是空的</p>
-      <div class="cart-empty-button">看看收藏</div>
-      <div class="cart-empty-button" @click="$router.push({ path: `/index` })">去逛逛</div>
-    </div>
-    <p class="product-title">- 为您推荐 -</p>
     <div
       class="box"
       v-infinite-scroll="loadMore"
@@ -35,22 +26,24 @@
 
 <script>
 import axios from 'axios'
-import Vue from 'vue'
-import headbar from '@/components/HeadBar'
-import { InfiniteScroll } from 'mint-ui'
-Vue.use(InfiniteScroll)
 export default {
-  components: {
-    headbar
-  },
-  beforeMount () {
-    this.$store.commit('HideTabbar', false)
-  },
   data () {
     return {
       datalist: [],
       index: 1
     }
+  },
+  computed: {
+    id () {
+      return this.$store.state.id
+    }
+  },
+  mounted () {
+    axios({
+      url: `/pages/category/${this.$store.state.id}?currentPage=1&sort=price&order=asc&_=1562829776445`
+    }).then(res => {
+      this.datalist = res.data.data
+    })
   },
   methods: {
     handlychange (itemid, proid, proimg, protit, sellp, oripri) {
@@ -71,51 +64,26 @@ export default {
       this.loading = true
       this.index++
       axios({
-        url: `/recommend/cart?currentPage=${this.index}&_=1562659386221`
+        url: `/pages/category/${this.$store.state.id}?currentPage=${this.index}&sort=price&order=asc&_=1562829776445`
       }).then(res => {
         this.datalist = [...this.datalist, ...res.data.data]
         this.loading = false
       })
     }
   },
-  mounted () {
-    axios({
-      url: '/recommend/cart?currentPage=1&_=1562649983191'
-    }).then(res => {
-      this.datalist = res.data.data
-    })
-  },
-  beforeDestroy () {
-    this.$store.commit('ShowTabbar', true)
+  watch: {
+    id (old, nw) {
+      axios({
+        url: `/pages/category/${old}?currentPage=1&sort=price&order=asc&_=1562829776445`
+      }).then(res => {
+        this.datalist = res.data.data
+      })
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.cart {
-  text-align: center;
-  font-size: 0.28rem;
-  margin-top: 0.2rem;
-}
-.cart-empty-button {
-  display: inline-block;
-  width: 1.5rem;
-  height: 0.4rem;
-  padding: 0.2rem 0.3rem;
-  background: #fff;
-  margin: 0.2rem auto;
-  background-color: #ffd444;
-  font-size: 0.28rem;
-  margin-left: 0.3rem;
-}
-.product-title {
-  font-size: 0.32rem;
-  text-align: center;
-  color: #000;
-  padding: 0.4rem 0;
-  background: white;
-  border-bottom: 1px solid #f5f5f5;
-}
 .box {
   background: #fff;
   overflow: hidden;

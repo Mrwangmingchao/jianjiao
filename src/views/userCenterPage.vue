@@ -1,7 +1,7 @@
 <template>
   <div id="box">
     <headbar>
-      <h3>个人信息</h3>
+      <h3>个人信息</h3><i class="iconfont icon-wo mine" @click="$router.push({path:'/mine'})"></i>
     </headbar>
 
     <ul>
@@ -9,51 +9,51 @@
         <p>
           头像
           <img
-            src="https://img.wowdsgn.com/product/images/38ac71d9-0886-427d-82d8-65e6b15c61f2_2dimension_800x800.jpg?imageslim"
+            src="@/assets/WechatIMG25.jpeg"
           />
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
         <p>
           昵称
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
         <p>
           个性签名
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
         <p>
           性别
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
         <p>
           年龄段
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
         <p>
           星座
-          <span>&gt;</span>
+         <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
         <p>
           职业
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
       <li>
         <p>
           收货地址
-          <span>&gt;</span>
+          <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
     </ul>
@@ -69,7 +69,12 @@ export default {
   data () {
     return {}
   },
-  methods: {},
+  beforeCreate () {
+    this.$store.commit('HideTabbar', false)
+  },
+  beforeDestroy () {
+    this.$store.commit('ShowTabbar', true)
+  },
   components: {
     headbar
   }
@@ -96,7 +101,7 @@ export default {
         display: flex;
         height: 100%;
         align-items: center;
-        > span {
+        > i {
           position: absolute;
           right: 0.4rem;
         }
@@ -109,24 +114,14 @@ export default {
           width: 1rem;
           height: 1rem;
           border-radius: 50%;
-          border: 1px solid #000;
-          margin-left: 4.4rem;
-        }
-      }
-    }
-     > li:nth-last-of-type(1) {
-     margin-top: .5rem;
-      > p {
-        > img {
-          width: 1rem;
-          height: 1rem;
-          border-radius: 50%;
-          border: 1px solid #000;
           margin-left: 4.4rem;
         }
       }
     }
   }
-
+}
+.mine{
+  float: right;
+  font-size: 16px;
 }
 </style>
