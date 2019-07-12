@@ -5,16 +5,27 @@
     </headbar>
 
     <div class="register">
-      <div>
-        <span>密码登录</span>
-        <span>短息登录</span>
+      <div class="lint">
+        <span @click="handlychage">
+          <a :class="istrue?'black':''">密码登录</a>
+        </span>
+        <span @click="handlychage">
+          <a :class="!istrue?'black':''">短息登录</a>
+        </span>
       </div>
+
       <input type="text" />
-      <input type="text" />
+      <div class="password">
+        <input type="text" />
+        <span>忘记密码？</span>
+      </div>
     </div>
     <button>确认</button>
     <p>
-      <span>一个月内记住登录</span>
+      <label>
+        <input type="checkbox" />一个月内记住登录
+      </label>
+
       <span>快速注册</span>
     </p>
   </div>
@@ -24,6 +35,16 @@
 import headbar from '@/components/HeadBar'
 
 export default {
+  data () {
+    return {
+      istrue: true
+    }
+  },
+  methods: {
+    handlychage () {
+      this.istrue = !this.istrue
+    }
+  },
   beforeCreate () {
     this.$store.commit('HideTabbar', false)
   },
@@ -46,7 +67,7 @@ export default {
 
   align-items: center;
 
-  > div {
+  > .lint {
     height: 1rem;
     width: 100%;
     display: flex;
@@ -57,18 +78,53 @@ export default {
       flex: 1;
       line-height: 1rem;
       text-align: center;
+      > a {
+        height: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+      }
     }
   }
   > input {
-    height: 0.8rem;
+    height: 0.9rem;
     width: 90%;
     border: 0;
     border-bottom: 2px solid #eeeeee;
     outline: none;
   }
-}
-  > button {
+  .password {
+    height: 100%;
+    width: 100%;
     width: 90%;
-    margin-top: 0.3rem;
+    > input {
+      width: 75%;
+      height: 0.9rem;
+      border: 0;
+      outline: none;
+    }
   }
+}
+button {
+  height: 1rem;
+  width: 90%;
+  margin-left: 5%;
+  background: yellow;
+  border: 0;
+  outline: 0;
+}
+.black {
+  border-bottom: 4px solid black;
+}
+p {
+  width: 90%;
+  margin-left: 5%;
+  border: 0;
+  margin-top: 0.2rem;
+  > label {
+    float: left;
+  }
+  > span {
+    float: right;
+  }
+}
 </style>
