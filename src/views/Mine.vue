@@ -2,48 +2,46 @@
   <div id="box">
     <header>我</header>
 
-    <div class="userinfo" @click='handlychange'>
-      <img
-        src="@/assets/WechatIMG25.jpeg"
-      />
+    <div class="userinfo" @click="handlychange">
+      <img src="@/assets/WechatIMG25.jpeg" />
       <p>GGK</p>
       <i class="iconfont icon-arrow-right"></i>
     </div>
 
     <ul class="order-all">
-      <li>
+      <li @click="$router.push('/mycart/all')">
         <a>全部订单</a>
       </li>
-      <li>
+      <li @click="$router.push('/mycart/obligation')">
         <i class="iconfont icon-daifukuan"></i>
         <p>
           待付款
           <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
-      <li>
+      <li @click="$router.push('mycart/shipped')">
         <i class="iconfont icon-daifahuo"></i>
         <p>
           待发货
           <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
-      <li>
+      <li @click="$router.push('/mycart/received')">
         <i class="iconfont icon-daishouhuo"></i>
         <p>
           待收货
           <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
-      <li>
+      <li @click="$router.push('/mycart/commented')">
         <i class="iconfont icon-daipinglun-xianxing"></i>
         <p>
           待评论
           <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
-      <li>
-       <i class="iconfont icon-tuihuanhuo1"></i>
+      <li @click="handlymycart">
+        <i class="iconfont icon-tuihuanhuo1"></i>
         <p>
           退换货
           <i class="iconfont icon-arrow-right"></i>
@@ -73,21 +71,21 @@
       </li>
     </ul>
 
-    <button> 退出登录 </button>
-
+    <button>退出登录</button>
   </div>
 </template>
 
 <script>
 export default {
   data () {
-    return {
-
-    }
+    return {}
   },
   methods: {
     handlychange () {
       this.$router.push('/userCenterPage')
+    },
+    handlymycart () {
+      this.$router.push('/mycart')
     }
   }
 }
@@ -95,7 +93,7 @@ export default {
 
 <style lang="scss" scoped>
 #box {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
   header {
     height: 0.88rem;
     background: white;
@@ -117,10 +115,10 @@ export default {
       border-radius: 50%;
       margin-left: 0.4rem;
     }
-     p {
+    p {
       margin-left: 0.3rem;
     }
-     i {
+    i {
       right: 0.5rem;
       position: absolute;
       right: 0.5rem;
@@ -129,7 +127,7 @@ export default {
 
   .order-all {
     background: white;
-    padding-left: .3rem;
+    padding-left: 0.3rem;
     li:nth-of-type(1) {
       border-bottom: 1px solid #ccc;
       a {
@@ -145,7 +143,7 @@ export default {
         width: 80%;
         margin-left: 1rem;
         color: #666;
-        font-size: .12rem;
+        font-size: 0.12rem;
 
         border-bottom: 1px solid #ccc;
         > i:nth-of-type(1) {
@@ -184,16 +182,16 @@ export default {
       }
     }
   }
-  button{
-      height: 1rem;
-      margin-top: .6rem;
-      width: 100%;
-      background: white;
-      border: 0;
-      color: red;
+  button {
+    height: 1rem;
+    margin-top: 0.6rem;
+    width: 100%;
+    background: white;
+    border: 0;
+    color: red;
   }
 }
-i{
+i {
   font-size: 22px;
 }
 </style>

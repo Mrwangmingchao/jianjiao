@@ -23,7 +23,12 @@ import Num from '@/views/SearchResult/Num'
 import SortItem from '@/views/SortItem'
 import mirrorofhalve from '@/views/mirrorofhalve'
 import Register from '@/views/Register'
-
+import Mycart from '@/views/Mycart'
+import All from '@/views/Mycart/All'
+import Obligation from '@/views/Mycart/Obligation'
+import Shipped from '@/views/Mycart/Shipped'
+import Received from '@/views/Mycart/Received'
+import Commented from '@/views/Mycart/Commented'
 Vue.use(Router)
 
 const router = new Router({
@@ -58,7 +63,35 @@ const router = new Router({
     path: '/message',
     component: Message
   },
-
+  {
+    path: '/mycart',
+    component: Mycart,
+    children: [{
+      path: 'all',
+      component: All
+    },
+    {
+      path: 'obligation',
+      component: Obligation
+    },
+    {
+      path: 'shipped',
+      component: Shipped
+    },
+    {
+      path: 'received',
+      component: Received
+    },
+    {
+      path: 'commented',
+      component: Commented
+    },
+    {
+      path: '',
+      redirect: 'obligation'
+    }
+    ]
+  },
   {
     path: '/cart',
     component: Cart
