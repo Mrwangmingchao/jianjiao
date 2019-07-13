@@ -8,6 +8,21 @@ import 'mint-ui/lib/style.css'
 // import 'element-ui/lib/theme-chalk/index.css';
 // Vue.use(ElementUI);
 
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    if (localStorage.getItem('pass') === 'true') {
+      next()
+    } else {
+      next({
+        path: '/login',
+        query: { redirect: to.fullpath }
+      })
+    }
+  } else {
+    next()
+  }
+})
+
 Vue.use(MintUI)
 Vue.config.productionTip = false
 

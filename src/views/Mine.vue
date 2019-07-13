@@ -73,7 +73,7 @@
       </li>
     </ul>
 
-    <button> 退出登录 </button>
+    <button @click="out"> 退出登录 </button>
 
   </div>
 </template>
@@ -88,6 +88,10 @@ export default {
   methods: {
     handlychange () {
       this.$router.push('/userCenterPage')
+    },
+    out () {
+      localStorage.setItem('pass', false)
+      this.$router.push({ path: 'index' })
     }
   }
 }
@@ -191,6 +195,7 @@ export default {
       background: white;
       border: 0;
       color: red;
+      outline: none;
   }
 }
 i{

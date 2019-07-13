@@ -29,7 +29,6 @@ export default {
   },
   mounted () {
     axios.get('./data.json').then(res => {
-      console.log(res)
       this.datalist = res.data.sort.slice(0, 7)
       this.itemlist = res.data.sort.slice(7)
     })
