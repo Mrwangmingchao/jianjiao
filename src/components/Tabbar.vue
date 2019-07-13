@@ -36,7 +36,7 @@ ul {
     text-align: center;
     font-size: 0.2rem;
     i {
-      font-size: 20px;
+      font-size: 17px;
       display: block;
     }
   }

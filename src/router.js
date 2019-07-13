@@ -23,6 +23,7 @@ import Num from '@/views/SearchResult/Num'
 import SortItem from '@/views/SortItem'
 import mirrorofhalve from '@/views/mirrorofhalve'
 import Register from '@/views/Register'
+import Login from '@/views/Login'
 
 Vue.use(Router)
 
@@ -56,15 +57,24 @@ const router = new Router({
   },
   {
     path: '/message',
-    component: Message
+    component: Message,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/cart',
-    component: Cart
+    component: Cart,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/mine',
-    component: Mine
+    component: Mine,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/productGroup/:Groupid',
@@ -125,8 +135,12 @@ const router = new Router({
     // props: true
   },
   {
-    path: 'register',
+    path: '/register',
     component: Register
+  },
+  {
+    path: '/login',
+    component: Login
   },
   {
     path: '*',
