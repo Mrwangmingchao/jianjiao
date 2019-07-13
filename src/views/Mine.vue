@@ -71,7 +71,8 @@
       </li>
     </ul>
 
-    <button>退出登录</button>
+    <button @click="out"> 退出登录 </button>
+
   </div>
 </template>
 
@@ -84,8 +85,9 @@ export default {
     handlychange () {
       this.$router.push('/userCenterPage')
     },
-    handlymycart () {
-      this.$router.push('/mycart')
+    out () {
+      localStorage.setItem('pass', false)
+      this.$router.push({ path: 'index' })
     }
   }
 }
@@ -182,13 +184,14 @@ export default {
       }
     }
   }
-  button {
-    height: 1rem;
-    margin-top: 0.6rem;
-    width: 100%;
-    background: white;
-    border: 0;
-    color: red;
+  button{
+      height: 1rem;
+      margin-top: .6rem;
+      width: 100%;
+      background: white;
+      border: 0;
+      color: red;
+      outline: none;
   }
 }
 i {

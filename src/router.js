@@ -33,6 +33,9 @@ import Favorite from '@/views/Favorite'
 import Single from '@/views/Favorite/Single'
 import Designer from '@/views/Favorite/Designer'
 import Brand from '@/views/Favorite/Brand'
+import Register from '@/views/Register'
+import Login from '@/views/Login'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -65,7 +68,10 @@ const router = new Router({
   },
   {
     path: '/message',
-    component: Message
+    component: Message,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/mycart',
@@ -98,7 +104,10 @@ const router = new Router({
   },
   {
     path: '/cart',
-    component: Cart
+    component: Cart,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/favorite',
@@ -122,7 +131,10 @@ const router = new Router({
     ] },
   {
     path: '/mine',
-    component: Mine
+    component: Mine,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/exchange',
@@ -185,6 +197,14 @@ const router = new Router({
     component: Item,
     name: 'jianjiaoitem'
     // props: true
+  },
+  {
+    path: '/register',
+    component: Register
+  },
+  {
+    path: '/login',
+    component: Login
   },
   {
     path: '*',
