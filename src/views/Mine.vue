@@ -40,7 +40,7 @@
           <i class="iconfont icon-arrow-right"></i>
         </p>
       </li>
-      <li @click="handlymycart">
+      <li @click="$router.push('/exchange')">
         <i class="iconfont icon-tuihuanhuo1"></i>
         <p>
           退换货
@@ -50,7 +50,7 @@
     </ul>
 
     <ul class="another">
-      <li>
+      <li  @click="$router.push('/favorite')">
         <p>
           我的收藏
           <i class="iconfont icon-arrow-right"></i>

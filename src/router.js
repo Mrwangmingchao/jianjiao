@@ -29,6 +29,11 @@ import Obligation from '@/views/Mycart/Obligation'
 import Shipped from '@/views/Mycart/Shipped'
 import Received from '@/views/Mycart/Received'
 import Commented from '@/views/Mycart/Commented'
+import Exchange from '@/views/Exchange'
+import Favorite from '@/views/Favorite'
+import Single from '@/views/Favorite/Single'
+import Designer from '@/views/Favorite/Designer'
+import Brand from '@/views/Favorite/Brand'
 Vue.use(Router)
 
 const router = new Router({
@@ -97,8 +102,32 @@ const router = new Router({
     component: Cart
   },
   {
+    path: '/favorite',
+    component: Favorite,
+    children: [{
+      path: 'single',
+      component: Single
+    },
+    {
+      path: 'designer',
+      component: Designer
+    },
+    {
+      path: 'brand',
+      component: Brand
+    },
+    {
+      path: '',
+      redirect: 'brand'
+    }
+    ] },
+  {
     path: '/mine',
     component: Mine
+  },
+  {
+    path: '/exchange',
+    component: Exchange
   },
   {
     path: '/productGroup/:Groupid',
@@ -147,7 +176,7 @@ const router = new Router({
     },
     {
       path: '',
-      redirect: 'new'
+      redirect: 'all'
     }
 
     ]
